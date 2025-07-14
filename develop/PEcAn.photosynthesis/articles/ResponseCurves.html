@@ -427,22 +427,22 @@ values.)</p>
 <span><span class="co">##    plus standard error of the mean:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##             Mean        SD  Naive SE Time-series SE</span></span>
-<span><span class="co">## Jmax0  1.420e+02 34.057412 2.781e-01      1.335e+00</span></span>
-<span><span class="co">## alpha0 2.753e-01  0.080244 6.552e-04      1.204e-03</span></span>
-<span><span class="co">## cp0    4.576e+01 12.840585 1.048e-01      4.001e-01</span></span>
-<span><span class="co">## r0     2.519e+00  1.542715 1.260e-02      3.645e-02</span></span>
-<span><span class="co">## tau    7.078e-03  0.000901 7.357e-06      9.428e-06</span></span>
-<span><span class="co">## vmax0  9.073e+01 65.578235 5.354e-01      1.615e+00</span></span>
+<span><span class="co">## Jmax0  1.415e+02 3.417e+01 2.790e-01      1.693e+00</span></span>
+<span><span class="co">## alpha0 2.758e-01 8.030e-02 6.556e-04      1.216e-03</span></span>
+<span><span class="co">## cp0    4.636e+01 1.232e+01 1.006e-01      3.667e-01</span></span>
+<span><span class="co">## r0     2.556e+00 1.586e+00 1.295e-02      3.855e-02</span></span>
+<span><span class="co">## tau    7.082e-03 8.985e-04 7.336e-06      8.905e-06</span></span>
+<span><span class="co">## vmax0  9.234e+01 6.365e+01 5.197e-01      1.473e+00</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## 2. Quantiles for each variable:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##             2.5%       25%       50%       75%     97.5%</span></span>
-<span><span class="co">## Jmax0  1.030e+02 1.236e+02 1.353e+02 1.502e+02 2.391e+02</span></span>
-<span><span class="co">## alpha0 1.301e-01 2.184e-01 2.716e-01 3.284e-01 4.410e-01</span></span>
-<span><span class="co">## cp0    1.166e+01 3.953e+01 4.694e+01 5.379e+01 6.849e+01</span></span>
-<span><span class="co">## r0     5.238e-01 1.362e+00 2.193e+00 3.336e+00 6.396e+00</span></span>
-<span><span class="co">## tau    5.408e-03 6.449e-03 7.048e-03 7.665e-03 8.942e-03</span></span>
-<span><span class="co">## vmax0  2.680e+01 4.603e+01 7.254e+01 1.137e+02 2.662e+02</span></span></code></pre>
+<span><span class="co">## Jmax0  1.020e+02 1.237e+02 135.87117 1.502e+02 2.257e+02</span></span>
+<span><span class="co">## alpha0 1.311e-01 2.177e-01   0.27144 3.297e-01 4.413e-01</span></span>
+<span><span class="co">## cp0    1.482e+01 4.004e+01  47.17623 5.385e+01 6.884e+01</span></span>
+<span><span class="co">## r0     5.121e-01 1.389e+00   2.21718 3.361e+00 6.466e+00</span></span>
+<span><span class="co">## tau    5.429e-03 6.463e-03   0.00704 7.664e-03 8.968e-03</span></span>
+<span><span class="co">## vmax0  2.753e+01 4.829e+01  74.65977 1.164e+02 2.621e+02</span></span></code></pre>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/gelman.plot.html" class="external-link">gelman.plot</a></span><span class="op">(</span><span class="va">fit</span><span class="op">$</span><span class="va">params</span>, auto.layout <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -452,16 +452,16 @@ values.)</p>
 <pre><code><span><span class="co">## Potential scale reduction factors:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##        Point est. Upper C.I.</span></span>
-<span><span class="co">## Jmax0        1.01       1.02</span></span>
-<span><span class="co">## alpha0       1.00       1.01</span></span>
-<span><span class="co">## cp0          1.00       1.00</span></span>
-<span><span class="co">## r0           1.01       1.02</span></span>
+<span><span class="co">## Jmax0        1.12       1.21</span></span>
+<span><span class="co">## alpha0       1.00       1.00</span></span>
+<span><span class="co">## cp0          1.02       1.03</span></span>
+<span><span class="co">## r0           1.00       1.01</span></span>
 <span><span class="co">## tau          1.00       1.00</span></span>
-<span><span class="co">## vmax0        1.00       1.00</span></span>
+<span><span class="co">## vmax0        1.00       1.01</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Multivariate psrf</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## 1</span></span></code></pre>
+<span><span class="co">## 1.02</span></span></code></pre>
 <p>The ‘predict’ object can be used to perform standard predictive
 diagnostics and to construct CI around curves.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
@@ -556,18 +556,18 @@ as before.</p>
 <pre><code><span><span class="co">## Potential scale reduction factors:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##           Point est. Upper C.I.</span></span>
-<span><span class="co">## Jmax0           1.25       1.86</span></span>
-<span><span class="co">## alpha0          1.23       1.91</span></span>
-<span><span class="co">## cp0             1.01       1.02</span></span>
-<span><span class="co">## r0              1.00       1.01</span></span>
-<span><span class="co">## tau             1.00       1.01</span></span>
-<span><span class="co">## tau.Aleaf       1.04       1.12</span></span>
-<span><span class="co">## tau.Vleaf       1.01       1.02</span></span>
-<span><span class="co">## vmax0           1.05       1.13</span></span>
+<span><span class="co">## Jmax0           1.19       1.54</span></span>
+<span><span class="co">## alpha0          1.52       2.66</span></span>
+<span><span class="co">## cp0             1.01       1.05</span></span>
+<span><span class="co">## r0              1.01       1.04</span></span>
+<span><span class="co">## tau             1.01       1.02</span></span>
+<span><span class="co">## tau.Aleaf       1.01       1.04</span></span>
+<span><span class="co">## tau.Vleaf       1.00       1.02</span></span>
+<span><span class="co">## vmax0           1.10       1.29</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Multivariate psrf</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## 1.17</span></span></code></pre>
+<span><span class="co">## 1.38</span></span></code></pre>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## predicted vs observed plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
@@ -719,26 +719,26 @@ Otherwise the fit and diagnostics are identical to before.</p>
 <span><span class="co">##    plus standard error of the mean:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##                Mean       SD  Naive SE Time-series SE</span></span>
-<span><span class="co">## Jmax0     333.02800 12.94618 1.057e-01      0.3188398</span></span>
-<span><span class="co">## alpha0      0.21234  0.05128 4.187e-04      0.0123553</span></span>
-<span><span class="co">## betaVN      1.26497 31.69467 2.588e-01      0.3400796</span></span>
-<span><span class="co">## cp0        57.43172  2.09883 1.714e-02      0.0395716</span></span>
-<span><span class="co">## r0          0.52365  0.24753 2.021e-03      0.0039267</span></span>
-<span><span class="co">## tau         0.08103  0.01072 8.757e-05      0.0001168</span></span>
-<span><span class="co">## tau.Aleaf  16.28603  8.36620 6.831e-02      0.2523381</span></span>
-<span><span class="co">## vmax0      81.28671  5.89611 4.814e-02      0.1462274</span></span>
+<span><span class="co">## Jmax0     332.67737 12.54008 1.024e-01      0.3103334</span></span>
+<span><span class="co">## alpha0      0.23737  0.04162 3.398e-04      0.0096731</span></span>
+<span><span class="co">## betaVN      0.37150 31.82608 2.599e-01      0.3344571</span></span>
+<span><span class="co">## cp0        57.50537  2.05820 1.681e-02      0.0369766</span></span>
+<span><span class="co">## r0          0.52191  0.24997 2.041e-03      0.0038211</span></span>
+<span><span class="co">## tau         0.08136  0.01079 8.806e-05      0.0001121</span></span>
+<span><span class="co">## tau.Aleaf  15.18748  7.74838 6.327e-02      0.2280329</span></span>
+<span><span class="co">## vmax0      81.14100  5.16437 4.217e-02      0.1034753</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## 2. Quantiles for each variable:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##                2.5%       25%       50%       75%    97.5%</span></span>
-<span><span class="co">## Jmax0     310.82827 324.21492 331.85990 340.48547 361.9153</span></span>
-<span><span class="co">## alpha0      0.11734   0.17545   0.21076   0.25400   0.2972</span></span>
-<span><span class="co">## betaVN    -61.01269 -20.28059   1.34765  22.31864  64.1479</span></span>
-<span><span class="co">## cp0        53.23197  56.02541  57.45401  58.84791  61.4951</span></span>
-<span><span class="co">## r0          0.16456   0.34438   0.48105   0.65940   1.1196</span></span>
-<span><span class="co">## tau         0.06159   0.07361   0.08047   0.08805   0.1033</span></span>
-<span><span class="co">## tau.Aleaf   4.52182  10.27344  14.77743  20.63161  36.9690</span></span>
-<span><span class="co">## vmax0      74.49902  77.65535  79.82993  83.17858  96.7978</span></span></code></pre>
+<span><span class="co">## Jmax0     311.31245 324.15244 331.44337 339.94205 360.4061</span></span>
+<span><span class="co">## alpha0      0.14427   0.21373   0.23885   0.26561   0.3088</span></span>
+<span><span class="co">## betaVN    -62.06700 -21.01441   0.35408  21.60374  62.1530</span></span>
+<span><span class="co">## cp0        53.43295  56.12616  57.52533  58.91371  61.5113</span></span>
+<span><span class="co">## r0          0.16250   0.34030   0.48015   0.65558   1.1118</span></span>
+<span><span class="co">## tau         0.06159   0.07394   0.08088   0.08832   0.1038</span></span>
+<span><span class="co">## tau.Aleaf   4.58719   9.66025  13.73669  19.09350  33.9384</span></span>
+<span><span class="co">## vmax0      74.53062  77.78050  79.93467  83.20260  94.4818</span></span></code></pre>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/gelman.plot.html" class="external-link">gelman.plot</a></span><span class="op">(</span><span class="va">fitC</span><span class="op">$</span><span class="va">params</span>, auto.layout <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ResponseCurves_files/figure-html/unnamed-chunk-18-1.png" width="100%"></p>
@@ -747,18 +747,18 @@ Otherwise the fit and diagnostics are identical to before.</p>
 <pre><code><span><span class="co">## Potential scale reduction factors:</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">##           Point est. Upper C.I.</span></span>
-<span><span class="co">## Jmax0           1.00       1.01</span></span>
-<span><span class="co">## alpha0          1.09       1.27</span></span>
+<span><span class="co">## Jmax0           1.01       1.02</span></span>
+<span><span class="co">## alpha0          1.08       1.20</span></span>
 <span><span class="co">## betaVN          1.00       1.00</span></span>
-<span><span class="co">## cp0             1.00       1.00</span></span>
+<span><span class="co">## cp0             1.00       1.01</span></span>
 <span><span class="co">## r0              1.00       1.00</span></span>
 <span><span class="co">## tau             1.00       1.00</span></span>
-<span><span class="co">## tau.Aleaf       1.01       1.03</span></span>
+<span><span class="co">## tau.Aleaf       1.01       1.02</span></span>
 <span><span class="co">## vmax0           1.01       1.01</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Multivariate psrf</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## 1.06</span></span></code></pre>
+<span><span class="co">## 1.03</span></span></code></pre>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## predicted vs observed plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
