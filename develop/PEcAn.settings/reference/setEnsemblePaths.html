@@ -53,7 +53,7 @@ add them all to your settings in one shot.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">setEnsemblePaths</span><span class="op">(</span></span>
 <span>  <span class="va">settings</span>,</span>
 <span>  <span class="va">n_reps</span>,</span>
-<span>  input_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"met"</span>, <span class="st">"poolinitcond"</span>, <span class="st">"soilinitcond"</span><span class="op">)</span>,</span>
+<span>  input_type <span class="op">=</span> <span class="st">"met"</span>,</span>
 <span>  path_template <span class="op">=</span> <span class="st">"./{id}/{n}.nc"</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -96,10 +96,9 @@ with curly braces wrapping any expressions to be interpolated.
 <code>{n}</code> will be replaced with each value of 1:<code>n_reps</code>, <code>{id}</code> will be
 replaced with the siteid of each site, and any other variables need to be
 passed as named arguments in <code>...</code>.</p>
-<p>Note that for consistency, every site in <code>settings</code> must contain an
-element named <code>inputs$&lt;input_type&gt;</code> before you call this.
-If <code>inputs$&lt;input_type&gt;$path</code> does not exist it will be created;
-if it does exist it will be overwritten.</p>
+<p>If <code>inputs$&lt;input_type&gt;</code> does not exist, it will be created with a <code>path</code>
+element that matches the requested pattern. If it does exist, any existing
+<code>path</code> element will be overwritten.</p>
     </div>
 
     <div class="section level2">
