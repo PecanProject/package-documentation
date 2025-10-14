@@ -49,6 +49,11 @@
 <span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>trace <span class="op">=</span> <span class="cn">TRUE</span>, TimeseriesPlot <span class="op">=</span> <span class="cn">FALSE</span>, debug <span class="op">=</span> <span class="cn">FALSE</span>, pause <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    Profiling <span class="op">=</span> <span class="cn">FALSE</span>, OutlierDetection <span class="op">=</span> <span class="cn">FALSE</span>, parallel_qsub <span class="op">=</span> <span class="cn">TRUE</span>, send_email <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    keepNC <span class="op">=</span> <span class="cn">TRUE</span>, forceRun <span class="op">=</span> <span class="cn">TRUE</span>, run_parallel <span class="op">=</span> <span class="cn">TRUE</span>, MCMC.args <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
+<span>  cov_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  debias_start_year <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  debias_drop_incomplete_covariates <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  debias_enforce_consistent_obs <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  debias_require_obs_at_t_for_predict <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -99,6 +104,26 @@
 `forceRun` decide if we want to proceed the Bayesian MCMC sampling without observations;
 `run_parallel` decide if we want to run the SDA under parallel mode for the `future_map` function;
 `MCMC.args` include lists for controling the MCMC sampling process (iteration, nchains, burnin, and nthin.).</p></dd>
+
+
+<dt id="arg-cov-dir">cov_dir<a class="anchor" aria-label="anchor" href="#arg-cov-dir"></a></dt>
+<dd><p>Directory containing yearly covariate stacks named like "covariates_YYYY.tiff".</p></dd>
+
+
+<dt id="arg-debias-start-year">debias_start_year<a class="anchor" aria-label="anchor" href="#arg-debias-start-year"></a></dt>
+<dd><p>Integer year (e.g., 2015). If `NULL`, debiasing is OFF.</p></dd>
+
+
+<dt id="arg-debias-drop-incomplete-covariates">debias_drop_incomplete_covariates<a class="anchor" aria-label="anchor" href="#arg-debias-drop-incomplete-covariates"></a></dt>
+<dd><p>Logical; drop sites with any NA covariates</p></dd>
+
+
+<dt id="arg-debias-enforce-consistent-obs">debias_enforce_consistent_obs<a class="anchor" aria-label="anchor" href="#arg-debias-enforce-consistent-obs"></a></dt>
+<dd><p>Logical; drop sites that lost any previously</p></dd>
+
+
+<dt id="arg-debias-require-obs-at-t-for-predict">debias_require_obs_at_t_for_predict<a class="anchor" aria-label="anchor" href="#arg-debias-require-obs-at-t-for-predict"></a></dt>
+<dd><p>Logical; only make residual predictions</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
