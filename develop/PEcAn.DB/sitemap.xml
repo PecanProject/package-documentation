@@ -14,6 +14,7 @@
 <url><loc>/reference/bety2pecan.html</loc></url>
 <url><loc>/reference/betyConnect.html</loc></url>
 <url><loc>/reference/check.lists.html</loc></url>
+<url><loc>/reference/check_missing_files.html</loc></url>
 <url><loc>/reference/clone_pft.html</loc></url>
 <url><loc>/reference/convert_input.html</loc></url>
 <url><loc>/reference/db.close.html</loc></url>
@@ -43,6 +44,8 @@
 <url><loc>/reference/get.id.html</loc></url>
 <url><loc>/reference/get.trait.data.html</loc></url>
 <url><loc>/reference/get.trait.data.pft.html</loc></url>
+<url><loc>/reference/get_machine_host.html</loc></url>
+<url><loc>/reference/get_machine_info.html</loc></url>
 <url><loc>/reference/get_postgres_envvars.html</loc></url>
 <url><loc>/reference/get_run_ids.html</loc></url>
 <url><loc>/reference/get_users.html</loc></url>
@@ -78,6 +81,7 @@
 <url><loc>/reference/symmetric_setdiff.html</loc></url>
 <url><loc>/reference/take.samples.html</loc></url>
 <url><loc>/reference/try2sqlite.html</loc></url>
+<url><loc>/reference/update_ensemble_writes.html</loc></url>
 <url><loc>/reference/var_names_all.html</loc></url>
 <url><loc>/reference/workflow.html</loc></url>
 <url><loc>/reference/workflows.html</loc></url>
