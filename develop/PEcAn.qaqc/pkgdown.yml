@@ -1,8 +1,8 @@
-pandoc: 3.7.0.2
+pandoc: 3.8.2.1
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   function_relationships: function_relationships.html
   module_output: module_output.html
   Pre-release-database-cleanup: Pre-release-database-cleanup.html
-last_built: 2025-10-31T20:08Z
+last_built: 2025-11-03T20:26Z
