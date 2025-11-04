@@ -34,6 +34,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.2" id="pecanuncertainty-182">PEcAn.uncertainty 1.8.2<a class="anchor" aria-label="anchor" href="#pecanuncertainty-182"></a></h2>
 <ul><li>Plotting sensitivity now makes less noise in the console and once again produces a one-page PDF as intended.</li>
+<li>
+<code>write.ensemble.configs</code> and <code>write.sa.configs</code> now generate an ensemble id if one is not provided in a DB-free run. Runs with DB continue to always generate a new id. Note that multi-site runs with no id provided will now get a separate ensemble ID (and thus generate separate analyses) for each site.</li>
 <li>Documented that <code>runModule.run.sensitivity.analysis</code> does not yet work with multisite settings. This will be fixed in a future release.</li>
 </ul></div>
     <div class="section level2">
