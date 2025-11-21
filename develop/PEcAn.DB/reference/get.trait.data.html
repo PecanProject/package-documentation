@@ -65,7 +65,8 @@
 <span>  <span class="va">database</span>,</span>
 <span>  <span class="va">forceupdate</span>,</span>
 <span>  write <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  trait.names <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  trait.names <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  input_file <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -107,10 +108,22 @@ BETYdb.  Defaults to FALSE.</p></dd>
 `NULL` (default), use all traits that have a prior for at least
 one of the `pfts`.</p></dd>
 
+
+<dt id="arg-input-file">input_file<a class="anchor" aria-label="anchor" href="#arg-input-file"></a></dt>
+<dd><p>Path to a CSV file containing prior information.
+If specified, `database` is not used.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>list of PFTs with update posteriorids</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>If either `input_file` or `settings$pfts$file_path` is provided,
+  it should be a valid path to a CSV (with at least columns
+  `name`, `distn`, `parama`, `paramb`, `n`) and will be used instead of
+  `database` for trait lookup.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
