@@ -174,22 +174,11 @@ to 2005)<a class="anchor" aria-label="anchor" href="#download-amerifluxlbl-data-
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">m2mdir</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/PEcAn.data.atmosphere/man/download.AmerifluxLBL.html" class="external-link">download.AmerifluxLBL</a></span><span class="op">(</span>sitename <span class="op">=</span> <span class="st">"US-WCr"</span>, outfolder <span class="op">=</span> <span class="va">m2mdir</span>,</span>
 <span>                   start_date <span class="op">=</span> <span class="st">"2000-01-01"</span>, end_date <span class="op">=</span> <span class="st">"2005-12-31"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Data use guidelines for AmeriFlux CC-BY-4.0 Data Policy:</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## (1) Data user is free to Share (copy and redistribute the material in any medium or format) and/or Adapt (remix, transform, and build upon the material) for any purpose.</span></span>
-<span><span class="co">## (2) Provide a citation to each site data product that includes the data-product DOI and/or recommended publication.</span></span>
-<span><span class="co">## (3) Acknowledge funding for supporting AmeriFlux data portal: U.S. Department of Energy Office of Science.</span></span></code></pre>
-<pre><code><span><span class="co">##                                                                        file</span></span>
-<span><span class="co">## 1 /tmp/RtmpcxBnvZ/met2model_testing3b726f451afb/AMF_US-WCr_BASE_HH_33-5.csv</span></span>
-<span><span class="co">##           host mimetype        formatname        startdate          enddate</span></span>
-<span><span class="co">## 1 2dea8b1de567 text/csv AMERIFLUX_BASE_HH 1998-01-01 00:00 2025-04-09 23:30</span></span>
-<span><span class="co">##               dbfile.name</span></span>
-<span><span class="co">## 1 AMF_US-WCr_BASE_HH_33-5</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="convert-downloaded-amerifluxlbl-data-to-cf-format">Convert downloaded AmerifluxLBL data to CF format<a class="anchor" aria-label="anchor" href="#convert-downloaded-amerifluxlbl-data-to-cf-format"></a>
 </h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cfdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">m2mdir</span>, <span class="st">"CF"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/PEcAn.data.atmosphere/man/met2CF.AmerifluxLBL.html" class="external-link">met2CF.AmerifluxLBL</a></span><span class="op">(</span>in.path <span class="op">=</span> <span class="va">m2mdir</span>, in.prefix <span class="op">=</span> <span class="st">"AMF_US-WCr"</span>, outfolder <span class="op">=</span> <span class="va">cfdir</span>,</span>
 <span>                 start_date <span class="op">=</span> <span class="st">"2000-01-01"</span>, end_date <span class="op">=</span> <span class="st">"2005-12-31"</span>,format<span class="op">=</span><span class="va">format</span><span class="op">)</span></span></code></pre></div>
@@ -197,7 +186,7 @@ to 2005)<a class="anchor" aria-label="anchor" href="#download-amerifluxlbl-data-
 <div class="section level3">
 <h3 id="gapfill-cf-met-drivers">Gapfill CF met drivers<a class="anchor" aria-label="anchor" href="#gapfill-cf-met-drivers"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapfilldir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">cfdir</span>, <span class="st">"gapfill"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/PEcAn.data.atmosphere/man/metgapfill.html" class="external-link">metgapfill</a></span><span class="op">(</span>in.path <span class="op">=</span> <span class="va">cfdir</span>, in.prefix <span class="op">=</span> <span class="st">"AMF_US-WCr_BASE_HH_14-5"</span>,</span>
 <span>           outfolder <span class="op">=</span> <span class="va">gapfilldir</span>, start_date <span class="op">=</span> <span class="st">"2000-01-01"</span>, end_date <span class="op">=</span> <span class="st">"2005-12-31"</span><span class="op">)</span></span></code></pre></div>
@@ -205,7 +194,7 @@ to 2005)<a class="anchor" aria-label="anchor" href="#download-amerifluxlbl-data-
 <div class="section level3">
 <h3 id="create-maat-model-specific-met-drivers">Create MAAT model-specific met drivers<a class="anchor" aria-label="anchor" href="#create-maat-model-specific-met-drivers"></a>
 </h3>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">in.path</span> <span class="op">&lt;-</span> <span class="va">gapfilldir</span></span>
 <span><span class="va">in.prefix</span> <span class="op">&lt;-</span> <span class="st">"AMF_US-WCr_BASE_HH_14-5"</span></span>
 <span><span class="va">outfolder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">gapfilldir</span>, <span class="st">"maat_drivers"</span><span class="op">)</span></span>
@@ -216,20 +205,6 @@ to 2005)<a class="anchor" aria-label="anchor" href="#download-amerifluxlbl-data-
 <span><span class="va">leap_year</span> <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="fu">PEcAn.MAAT</span><span class="fu">::</span><span class="fu"><a href="../reference/met2model.MAAT.html">met2model.MAAT</a></span><span class="op">(</span><span class="va">in.path</span>, <span class="va">in.prefix</span>, <span class="va">outfolder</span>, <span class="va">start_date</span>, <span class="va">end_date</span>,</span>
 <span>                           overwrite <span class="op">=</span> <span class="va">overwrite</span>, verbose <span class="op">=</span> <span class="va">verbose</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "internal results"</span></span>
-<span><span class="co">##                                                                                                                      file</span></span>
-<span><span class="co">## 1 /tmp/RtmpcxBnvZ/met2model_testing3b726f451afb/CF/gapfill/maat_drivers/AMF_US-WCr_BASE_HH_14-5.2000-01-01.2005-12-31.csv</span></span>
-<span><span class="co">##           host mimetype       formatname  startdate    enddate</span></span>
-<span><span class="co">## 1 2dea8b1de567 text/csv MAAT meteorology 2000-01-01 2005-12-31</span></span>
-<span><span class="co">##                                         dbfile.name</span></span>
-<span><span class="co">## 1 AMF_US-WCr_BASE_HH_14-5.2000-01-01.2005-12-31.csv</span></span>
-<span><span class="co">## [1] "Skipping to next year"</span></span>
-<span><span class="co">## [1] "Skipping to next year"</span></span>
-<span><span class="co">## [1] "Skipping to next year"</span></span>
-<span><span class="co">## [1] "Skipping to next year"</span></span>
-<span><span class="co">## [1] "Skipping to next year"</span></span>
-<span><span class="co">## [1] "Skipping to next year"</span></span>
-<span><span class="co">## [1] "NO MET TO OUTPUT"</span></span></code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
