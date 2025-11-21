@@ -50,7 +50,8 @@ Thus, this script will be more computationally efficient, making it possible to 
 <span>  ensemble.samples <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  outdir <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>TimeseriesPlot <span class="op">=</span> <span class="cn">FALSE</span>, OutlierDetection <span class="op">=</span> <span class="cn">FALSE</span>, send_email <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    keepNC <span class="op">=</span> <span class="cn">TRUE</span>, forceRun <span class="op">=</span> <span class="cn">TRUE</span>, MCMC.args <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span>    keepNC <span class="op">=</span> <span class="cn">TRUE</span>, forceRun <span class="op">=</span> <span class="cn">TRUE</span>, MCMC.args <span class="op">=</span> <span class="cn">NULL</span>, merge_nc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  debias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cov.dir <span class="op">=</span> <span class="cn">NULL</span>, start.year <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -79,7 +80,7 @@ Thus, this script will be more computationally efficient, making it possible to 
 
 
 <dt id="arg-ensemble-samples">ensemble.samples<a class="anchor" aria-label="anchor" href="#arg-ensemble-samples"></a></dt>
-<dd><p>Pass ensemble.samples from outside to avoid GitHub check issues.</p></dd>
+<dd><p>list of ensemble parameters across PFTs. Default is NULL.</p></dd>
 
 
 <dt id="arg-outdir">outdir<a class="anchor" aria-label="anchor" href="#arg-outdir"></a></dt>
@@ -93,7 +94,15 @@ Thus, this script will be more computationally efficient, making it possible to 
 `send_email` contains lists for sending email to report the SDA progress;
 `keepNC` decide if we want to keep the NetCDF files inside the out directory;
 `forceRun` decide if we want to proceed the Bayesian MCMC sampling without observations;
-`MCMC.args` include lists for controling the MCMC sampling process (iteration, nchains, burnin, and nthin.).</p></dd>
+`MCMC.args` include lists for controling the MCMC sampling process (iteration, nchains, burnin, and nthin.).
+`merge_nc` determine if we want to merge all netCDF files across sites and ensembles.
+If it's set as `TRUE`, we will then combine all netCDF files into the `merged_nc` folder within the `outdir`.</p></dd>
+
+
+<dt id="arg-debias">debias<a class="anchor" aria-label="anchor" href="#arg-debias"></a></dt>
+<dd><p>List: R list containing the covariance directory and the start year.
+covariance directory should include GeoTIFF files named by year.
+start year is numeric input which decide when to start the debiasing feature.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -41,10 +41,6 @@
 <url><loc>/reference/build_X.html</loc></url>
 <url><loc>/reference/conj_wt_wishart_sampler.html</loc></url>
 <url><loc>/reference/construct_nimble_H.html</loc></url>
-<url><loc>/reference/debias_cov_by_columns.html</loc></url>
-<url><loc>/reference/debias_get_covariates_for_date.html</loc></url>
-<url><loc>/reference/debias_helpers.html</loc></url>
-<url><loc>/reference/debias_weights_rows.html</loc></url>
 <url><loc>/reference/downscale_main.html</loc></url>
 <url><loc>/reference/downscale_qsub_main.html</loc></url>
 <url><loc>/reference/dwtmnorm.html</loc></url>
@@ -75,8 +71,8 @@
 <url><loc>/reference/sda.enkf.multisite.html</loc></url>
 <url><loc>/reference/sda.enkf.original.html</loc></url>
 <url><loc>/reference/sda.enkf_local.html</loc></url>
-<url><loc>/reference/sda_apply_debias_step.html</loc></url>
 <url><loc>/reference/sda_assemble.html</loc></url>
+<url><loc>/reference/sda_bias_correction.html</loc></url>
 <url><loc>/reference/sda_matchparam.html</loc></url>
 <url><loc>/reference/sda_weights_site.html</loc></url>
 <url><loc>/reference/simple.local.html</loc></url>

@@ -46,14 +46,10 @@
 <span>  restart <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  pre_enkf_params <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ensemble.samples <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>trace <span class="op">=</span> <span class="cn">TRUE</span>, TimeseriesPlot <span class="op">=</span> <span class="cn">FALSE</span>, debug <span class="op">=</span> <span class="cn">FALSE</span>, pause <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    Profiling <span class="op">=</span> <span class="cn">FALSE</span>, OutlierDetection <span class="op">=</span> <span class="cn">FALSE</span>, parallel_qsub <span class="op">=</span> <span class="cn">TRUE</span>, send_email <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    keepNC <span class="op">=</span> <span class="cn">TRUE</span>, forceRun <span class="op">=</span> <span class="cn">TRUE</span>, run_parallel <span class="op">=</span> <span class="cn">TRUE</span>, MCMC.args <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
-<span>  cov_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  debias_start_year <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  debias_drop_incomplete_covariates <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  debias_enforce_consistent_obs <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  debias_require_obs_at_t_for_predict <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>TimeseriesPlot <span class="op">=</span> <span class="cn">FALSE</span>, OutlierDetection <span class="op">=</span> <span class="cn">FALSE</span>, send_email <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    keepNC <span class="op">=</span> <span class="cn">TRUE</span>, forceRun <span class="op">=</span> <span class="cn">TRUE</span>, run_parallel <span class="op">=</span> <span class="cn">TRUE</span>, MCMC.args <span class="op">=</span> <span class="cn">NULL</span>, merge_nc <span class="op">=</span></span>
+<span>    <span class="cn">TRUE</span>, execution <span class="op">=</span> <span class="st">"local"</span><span class="op">)</span>,</span>
+<span>  debias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cov.dir <span class="op">=</span> <span class="cn">NULL</span>, start.year <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -87,43 +83,30 @@
 
 
 <dt id="arg-ensemble-samples">ensemble.samples<a class="anchor" aria-label="anchor" href="#arg-ensemble-samples"></a></dt>
-<dd><p>Pass ensemble.samples from outside to avoid GitHub check issues.</p></dd>
+<dd><p>list of ensemble parameters across PFTs. Default is NULL.</p></dd>
 
 
 <dt id="arg-control">control<a class="anchor" aria-label="anchor" href="#arg-control"></a></dt>
 <dd><p>List of flags controlling the behavior of the SDA.
-`trace` for reporting back the SDA outcomes;
 `TimeseriesPlot` for post analysis examination;
-`debug` decide if we want to pause the code and examining the variables inside the function;
-`pause` decide if we want to pause the SDA workflow at current time point t;
-`Profiling` decide if we want to export the temporal SDA outputs in CSV file;
 `OutlierDetection` decide if we want to execute the outlier detection each time after the model forecasting;
-`parallel_qsub` decide if we want to execute the `qsub` job submission under parallel mode;
 `send_email` contains lists for sending email to report the SDA progress;
 `keepNC` decide if we want to keep the NetCDF files inside the out directory;
 `forceRun` decide if we want to proceed the Bayesian MCMC sampling without observations;
 `run_parallel` decide if we want to run the SDA under parallel mode for the `future_map` function;
-`MCMC.args` include lists for controling the MCMC sampling process (iteration, nchains, burnin, and nthin.).</p></dd>
+`MCMC.args` include lists for controling the MCMC sampling process (iteration, nchains, burnin, and nthin.).
+`merge_nc` determine if we want to merge all netCDF files across sites and ensembles.
+If it's set as `TRUE`, we will then combine all netCDF files into the `merged_nc` folder within the `outdir`.
+`execution` decide the way we want to execute model
+including `local` ,where we execute the model locally;
+`qsub`, where we use the traditional `start_model_runs` function for submission;
+`qsub_parallel`, where we first combine jobs and submit them into the SCC.</p></dd>
 
 
-<dt id="arg-cov-dir">cov_dir<a class="anchor" aria-label="anchor" href="#arg-cov-dir"></a></dt>
-<dd><p>Directory containing yearly covariate stacks named like "covariates_YYYY.tiff".</p></dd>
-
-
-<dt id="arg-debias-start-year">debias_start_year<a class="anchor" aria-label="anchor" href="#arg-debias-start-year"></a></dt>
-<dd><p>Integer year (e.g., 2015). If `NULL`, debiasing is OFF.</p></dd>
-
-
-<dt id="arg-debias-drop-incomplete-covariates">debias_drop_incomplete_covariates<a class="anchor" aria-label="anchor" href="#arg-debias-drop-incomplete-covariates"></a></dt>
-<dd><p>Logical; drop sites with any NA covariates</p></dd>
-
-
-<dt id="arg-debias-enforce-consistent-obs">debias_enforce_consistent_obs<a class="anchor" aria-label="anchor" href="#arg-debias-enforce-consistent-obs"></a></dt>
-<dd><p>Logical; drop sites that lost any previously</p></dd>
-
-
-<dt id="arg-debias-require-obs-at-t-for-predict">debias_require_obs_at_t_for_predict<a class="anchor" aria-label="anchor" href="#arg-debias-require-obs-at-t-for-predict"></a></dt>
-<dd><p>Logical; only make residual predictions</p></dd>
+<dt id="arg-debias">debias<a class="anchor" aria-label="anchor" href="#arg-debias"></a></dt>
+<dd><p>List: R list containing the covariance directory and the start year.
+covariance directory should include GeoTIFF files named by year.
+start year is numeric input which decide when to start the debiasing feature.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
