@@ -276,7 +276,7 @@ values, so our observation also has to have this many points.</p>
 <code class="sourceCode R"><span><span class="va">invert.options</span><span class="op">$</span><span class="va">model</span></span></code></pre></div>
 <pre><code><span><span class="co">## function (params, seed = NULL) </span></span>
 <span><span class="co">## prospect(params, 5)[, 1]</span></span>
-<span><span class="co">## &lt;bytecode: 0x559d9ef8a630&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x561022eb5eb0&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:PEcAnRTM&gt;</span></span></code></pre>
 <p>The recommended way to set settings is to start with a default object
 and modify it. For example, in the following block, we reduce the length
@@ -329,45 +329,23 @@ cores on your machine.</p>
 <pre><code><span><span class="co">## [1] "Running chain 1 of 2"</span></span></code></pre>
 <pre><code><span><span class="co">## Loading required namespace: MASS</span></span></code></pre>
 <pre><code><span><span class="co">## [1] "Running chain 2 of 2"</span></span>
-<span><span class="co">## [1] "The following parameters did not converge: Car (1.306), Cw (1.573)"</span></span>
-<span><span class="co">## [1] "Converged with all Gelman diag &lt;= 1.001"</span></span></code></pre>
-<pre><code><span><span class="co">##           N      Cab      Car       Cw       Cm residual PSRF N &gt; 1.10</span></span>
-<span><span class="co">## 46 1.034063 1.047655 1.174796 1.304651 1.001482 1.075235         FALSE</span></span>
-<span><span class="co">## 47 1.044040 1.042420 1.122026 1.243426 1.008934 1.057692         FALSE</span></span>
-<span><span class="co">## 48 1.037438 1.025795 1.120370 1.199240 1.012572 1.055102         FALSE</span></span>
-<span><span class="co">## 49 1.016022 1.020189 1.023890 1.144805 1.005341 1.053004         FALSE</span></span>
-<span><span class="co">## 50 1.007550 1.004625 1.003052 1.130626 1.001551 1.050658         FALSE</span></span>
-<span><span class="co">## 51 1.006932 1.001220 1.001875 1.159131 1.003434 1.049637         FALSE</span></span>
-<span><span class="co">##    PSRF Cab &gt; 1.10 PSRF Car &gt; 1.10 PSRF Cw &gt; 1.10 PSRF Cm &gt; 1.10</span></span>
-<span><span class="co">## 46           FALSE            TRUE           TRUE          FALSE</span></span>
-<span><span class="co">## 47           FALSE            TRUE           TRUE          FALSE</span></span>
-<span><span class="co">## 48           FALSE            TRUE           TRUE          FALSE</span></span>
-<span><span class="co">## 49           FALSE           FALSE           TRUE          FALSE</span></span>
-<span><span class="co">## 50           FALSE           FALSE           TRUE          FALSE</span></span>
-<span><span class="co">## 51           FALSE           FALSE           TRUE          FALSE</span></span>
-<span><span class="co">##    PSRF residual &gt; 1.10</span></span>
-<span><span class="co">## 46                FALSE</span></span>
-<span><span class="co">## 47                FALSE</span></span>
-<span><span class="co">## 48                FALSE</span></span>
-<span><span class="co">## 49                FALSE</span></span>
-<span><span class="co">## 50                FALSE</span></span>
-<span><span class="co">## 51                FALSE</span></span>
+<span><span class="co">## [1] "The following parameters did not converge: Car (1.742)"</span></span>
 <span><span class="co">## [1] "Converged with all Gelman diag &lt;= 1.000"</span></span></code></pre>
 <p>The output of <code>invert.auto</code> is a list of two objects: A
 list of summary statistics for each parameter and an
 <code>mcmc.list</code> object of the samples for diagnostic purposes or
 calculation of other summary statistics.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">inversion.output</span><span class="op">$</span><span class="va">samples</span>, auto.layout<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="pecanrtm.vignette_files/figure-html/unnamed-chunk-14-1.png" width="80%"><img src="pecanrtm.vignette_files/figure-html/unnamed-chunk-14-2.png" width="80%"><img src="pecanrtm.vignette_files/figure-html/unnamed-chunk-14-3.png" width="80%"></p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">samples.mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">inversion.output</span><span class="op">$</span><span class="va">samples</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="op">(</span><span class="fl">2000</span><span class="op">:</span><span class="fl">0</span><span class="op">)</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">samples.mat</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">params.prospect5</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs</a></span><span class="op">(</span><span class="va">samples.mat</span>, pch<span class="op">=</span><span class="st">"."</span><span class="op">)</span></span></code></pre></div>
 <p><img src="pecanrtm.vignette_files/figure-html/unnamed-chunk-14-4.png" width="80%"></p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">inversion.output</span><span class="op">$</span><span class="va">results</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"mu"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">inversion.output</span><span class="op">$</span><span class="va">results</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="va">prospect.sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/prospect.html">prospect</a></span><span class="op">(</span><span class="va">means</span>, <span class="fl">5</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>  <span class="co"># reflectance</span></span>
 <span></span>
