@@ -59,7 +59,8 @@
 <span>  <span class="va">ensemble_name</span>,</span>
 <span>  <span class="va">existing.input</span>,</span>
 <span>  <span class="va">existing.dbfile</span>,</span>
-<span>  <span class="va">input</span></span>
+<span>  <span class="va">input</span>,</span>
+<span>  <span class="va">site.id</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -134,6 +135,10 @@
 
 <dt id="arg-input">input<a class="anchor" aria-label="anchor" href="#arg-input"></a></dt>
 <dd><p>data.frame. Single row with the parent input record from BETYdb, typically including columns like `id`, `start_date`, `end_date`, etc. If the new data are derived from an existing input, this links them in the `parent_id` column of the new entries.</p></dd>
+
+
+<dt id="arg-site-id">site.id<a class="anchor" aria-label="anchor" href="#arg-site-id"></a></dt>
+<dd><p>integer. The ID of the site associated with the input data.</p></dd>
 
 </dl></div>
     <div class="section level2">
