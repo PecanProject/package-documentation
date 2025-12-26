@@ -2,5 +2,6 @@ pandoc: 3.8.2.1
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
+  meta-analysis-demo: meta-analysis-demo.html
   single.MA_demo: single.MA_demo.html
-last_built: 2025-12-26T16:04Z
+last_built: 2025-12-26T19:23Z
