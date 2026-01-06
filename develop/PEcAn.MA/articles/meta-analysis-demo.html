@@ -66,14 +66,14 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/use.html" class="external-link">use</a></span><span class="op">(</span><span class="st">"PEcAn.MA"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/use.html" class="external-link">use</a></span><span class="op">(</span><span class="st">"tibble"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"tribble"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://pecanproject.github.io" class="external-link">"PEcAn.MA"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://tibble.tidyverse.org/" class="external-link">"tibble"</a></span>, include.only <span class="op">=</span> <span class="st">"tribble"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20251222</span><span class="op">)</span></span></code></pre></div>
 <p>An example of a prior distributions table, demonstrating the expected
 format.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">prior_distns</span> <span class="op">&lt;-</span> <span class="fu">tribble</span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">prior_distns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">row_name</span>                     , <span class="op">~</span><span class="va">distn</span>    , <span class="op">~</span><span class="va">parama</span> , <span class="op">~</span><span class="va">paramb</span> , <span class="op">~</span><span class="va">n</span>  , <span class="co">#nolint</span></span>
 <span>  <span class="st">"growth_resp_factor"</span>          , <span class="st">"beta"</span>    ,  <span class="fl">2.63</span>   ,   <span class="fl">6.52</span>  ,   <span class="fl">0</span> , <span class="co">#nolint</span></span>
 <span>  <span class="st">"leaf_turnover_rate"</span>          , <span class="st">"weibull"</span> ,  <span class="fl">1.37</span>   ,   <span class="fl">1.43</span>  , <span class="fl">363</span> , <span class="co">#nolint</span></span>
