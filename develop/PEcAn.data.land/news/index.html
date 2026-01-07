@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">PEcAn.data.land</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.8.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.9.0</small>
 
     <a href="../index.html" style="padding: 0em 1em">← Up</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +32,33 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.8.2" id="pecandataland-182">PEcAn.data.land 1.8.2<a class="anchor" aria-label="anchor" href="#pecandataland-182"></a></h2>
-<ul><li>Removed unused parameter <code>machine</code> from put_veg_module()</li>
-<li>Fixed “external pointer is not valid” error and addressed key bugs in <code><a href="../reference/soilgrids_soilC_extract.html">soilgrids_soilC_extract()</a></code> function (#3506)</li>
+<h2 class="pkg-version" data-toc-text="1.9.0" id="pecandataland-190">PEcAn.data.land 1.9.0<a class="anchor" aria-label="anchor" href="#pecandataland-190"></a></h2>
+<div class="section level3">
+<h3 id="added-1-9-0">Added<a class="anchor" aria-label="anchor" href="#added-1-9-0"></a></h3>
+<ul><li>New function <code><a href="../reference/soilgrids_ic_process.html">soilgrids_ic_process()</a></code>, with helpers <code><a href="../reference/preprocess_soilgrids_data.html">preprocess_soilgrids_data()</a></code> and <code><a href="../reference/generate_soilgrids_ensemble.html">generate_soilgrids_ensemble()</a></code>, generates soil carbon initial conditions from SoilGrids 250m data (#3508).</li>
+<li>New function <code><a href="../reference/clip_and_save_raster_file.html">clip_and_save_raster_file()</a></code> subsets rasters to match a polygon of interest (#3537).</li>
+<li>New function <code>look_up_fertilizer_component()</code> contains typical carbon and nitrogen composition of common fertilizer types (#3559).</li>
+<li>New PEcAn standard for <code>events.json</code> files. These contain information about management events (planting, harvest, irrigation, etc). The standard is defined in <code>inst/events_schema_v0.1.0.json</code> and event files can be validated against the schema with new function <code>validate_events()</code> (#3623, #3521).</li>
 </ul></div>
+<div class="section level3">
+<h3 id="changed-1-9-0">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-0"></a></h3>
+<ul><li>
+<code>Read.IC.info.BADM</code> now processes both single-site and multi-site settings, and uses more carbon pools (<code>ROOT_BIOMASS</code>, <code>AG_BIOMASS</code>, <code>SOIL_STOCK</code>, <code>LIT_BIOMASS</code>) if they are present (#3536).</li>
+<li>Package <code>swfscMisc</code> is no longer imported; it was formerly used in <code><a href="../reference/extract_NEON_veg.html">extract_NEON_veg()</a></code> to compute distances and has been replaced by use of <code><a href="https://rspatial.github.io/terra/reference/distance.html" class="external-link">terra::distance()</a></code> (#3552).</li>
+<li>
+<code><a href="../reference/extract_soil_gssurgo.html">extract_soil_gssurgo()</a></code> now supports spatial grid sampling using new arguments <code>grid_size</code> and <code>grid_spacing</code>. Previously available argument <code>radius</code> has been removed (#3534).</li>
+<li>
+<code><a href="../reference/extract_soil_gssurgo.html">extract_soil_gssurgo()</a></code> now reports an estimate of soil organic carbon stocks (#3534).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="removed-1-9-0">Removed<a class="anchor" aria-label="anchor" href="#removed-1-9-0"></a></h3>
+<ul><li>Removed unused parameter <code>machine</code> from <code><a href="../reference/put_veg_module.html">put_veg_module()</a></code> (#3575).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="fixed-1-9-0">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-9-0"></a></h3>
+<ul><li>Fixed an invalid external pointer error in <code><a href="../reference/soilgrids_soilC_extract.html">soilgrids_soilC_extract()</a></code> (#3506).</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.1" id="pecandataland-181">PEcAn.data.land 1.8.1<a class="anchor" aria-label="anchor" href="#pecandataland-181"></a></h2>
 <ul><li>Dependency <code>datapack</code> is now optional. It is only used by <code><a href="../reference/dataone_download.html">dataone_download()</a></code> (#3373).</li>
@@ -48,11 +71,6 @@
 <div class="section level3">
 <h3 id="added-1-8-0">Added<a class="anchor" aria-label="anchor" href="#added-1-8-0"></a></h3>
 <ul><li>New function <code>soilgrids_soilC_extract</code> retrieves soil C estimates with uncertainty from the ISRIC SoilGrids 250m data. (#3040, @Qianyuxuan)</li>
-<li>Included all relevant carbon pools (<code>ROOT_BIOMASS</code>, <code>AG_BIOMASS</code>, <code>SOIL_STOCK</code>, <code>LIT_BIOMASS</code>) in BADM-based IC extraction; excluded non-pool variables like <code>SOIL_CHEM</code>.</li>
-<li>Added explicit support for <code>LIT_BIOMASS</code> to fully utilize <strong>BADM</strong> biomass capabilities.</li>
-<li>Added <code>test-IC_BADM_Utilities.R</code> to validate BADM initial condition extraction and processing</li>
-<li>
-<code>extract_soil_gssurgo</code> now supports spatial sampling using a grid of user-defined size and spacing. And supports ensemble simulation of soil organic carbon (SOC) stocks, using area-weighted aggregation</li>
 </ul></div>
 <div class="section level3">
 <h3 id="fixed-1-8-0">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-8-0"></a></h3>
@@ -65,7 +83,6 @@
 <ul><li>
 <code>find.land()</code> has been removed. It is not used anywhere we know if, has apparently not been working for some time, and relied on the <code>maptools</code> package which is scheduled for retirement.</li>
 <li>Removed dependency on <code>PEcAn.data.atmosphere</code>, notably by retrieving site latitude and longitude directly from <code><a href="https://rdrr.io/pkg/PEcAn.DB/man/query.site.html" class="external-link">PEcAn.DB::query.site</a></code> instead of custom lookups (#3300, Abhinav Pandey).</li>
-<li>Fixed a bugs and BADM now process both single-site and multi-site settings, detecting the input structure and processing each site independently to generate the correct number of ensemble members per site.</li>
 </ul></div>
 </div>
     <div class="section level2">

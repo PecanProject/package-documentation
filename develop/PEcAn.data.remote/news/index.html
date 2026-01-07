@@ -33,14 +33,31 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.1" id="pecandataremote-191">PEcAn.data.remote 1.9.1<a class="anchor" aria-label="anchor" href="#pecandataremote-191"></a></h2>
+<div class="section level3">
+<h3 id="added-1-9-1">Added<a class="anchor" aria-label="anchor" href="#added-1-9-1"></a></h3>
+<ul><li>New function <code>extract_thredds_nc</code> collects data from a Thredds URL into a single dataframe (#2458).</li>
+<li>New function <code>get_site_info</code> looks up in the BETY database all sites found in a settings object (#2458).</li>
+<li>new function <code>merge_image_tiles</code> stitches multiple hdf or tif files into a larger spatial image (#3573, #3617).</li>
+<li>New function <code>gdal_conversion</code> provides an R interface to format conversion utilities provided by the GDAL library (#3585, #3588).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="changed-1-9-1">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-1"></a></h3>
 <ul><li>
-<code>MODIS_LAI_prep</code> gains two arguments:
+<code>MODIS_LAI_prep</code> gains two arguments (#3565):
 <ul><li>
 <code>skip_download</code> (with default FALSE) to work offline from an existing file named “LAI.csv”.</li>
 <li>
 <code>boundary</code> (with default NULL, ie no effect) to set upper and lower quantiles for trimming LAI data</li>
 </ul></li>
+<li>
+<code>download.thredds.AGB</code> renamed to <code>download.thredds</code> (#2458).</li>
+<li>
+<code>GEDI_AGB_prep</code> argument <code>credential.folder</code> (with default “~”) renamed to <code>credential_path</code> (with default “~/.netrc”) (#3540).</li>
+<li>
+<code>GEDI_AGB_prep</code> will use existing local files if present rather than re-download them (#3572).</li>
+<li>All <code>*DAAC</code> functions now take argument <code>credential_path</code>, which should be set to the path to a valid <code>.netrc</code> file (#3572).</li>
 </ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.0" id="pecandataremote-190">PEcAn.data.remote 1.9.0<a class="anchor" aria-label="anchor" href="#pecandataremote-190"></a></h2>
 <ul><li>Refactored GEDI, LAI, and SMAP workflows for more efficient parallel processing</li>

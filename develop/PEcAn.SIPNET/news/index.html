@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">PEcAn.SIPNET</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.9.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.10.0</small>
 
     <a href="../index.html" style="padding: 0em 1em">← Up</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,19 +32,35 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.9.1" id="pecansipnet-191">PEcAn.SIPNET 1.9.1<a class="anchor" aria-label="anchor" href="#pecansipnet-191"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.10.0" id="pecansipnet-1100">PEcAn.SIPNET 1.10.0<a class="anchor" aria-label="anchor" href="#pecansipnet-1100"></a></h2>
 <div class="section level3">
-<h3 id="changed-1-9-1">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-1"></a></h3>
-<ul><li>Breaking: Renamed the setting used to pass soil and hydrology parameters. <code>write.config.SIPNET</code> previously read these from <code>settings$run$inputs$soilinitcond</code>, now <code>settings$run$inputs$soil_physics</code> to better reflect that these are state factors applicable to the whole run rather than initial conditions. (Quianyu Xuan, #3406)</li>
-<li>model2netcdf.SIPNET no longer writes separate <code>&lt;year&gt;.nc.var</code> files for every year of output. Use <code><a href="https://rdrr.io/pkg/PEcAn.utils/man/nc_write_varfiles.html" class="external-link">PEcAn.utils::nc_write_varfiles()</a></code> to create these as needed.</li>
-<li>The <code>sipnet2datetime</code> function is no longer used anywhere and therefore has been removed.</li>
+<h3 id="added-1-10-0">Added<a class="anchor" aria-label="anchor" href="#added-1-10-0"></a></h3>
+<ul><li>
+<code><a href="../reference/write.events.SIPNET.html">write.events.SIPNET()</a></code> generates SIPNET <code>events.in</code> files from an <code>events.json</code> file (#3623).</li>
+<li>
+<code>met2model.SIPNET</code> now accepts argument <code>var.names</code>, listing which variables should be extracted from the file. If not provided, it extracts all variables in the file (#3563).</li>
 </ul></div>
 <div class="section level3">
-<h3 id="fixed-1-9-1">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-9-1"></a></h3>
+<h3 id="removed-1-10-0">Removed<a class="anchor" aria-label="anchor" href="#removed-1-10-0"></a></h3>
+<ul><li>The <code>sipnet2datetime</code> function is no longer used anywhere and therefore has been removed (#3622).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="changed-1-10-0">Changed<a class="anchor" aria-label="anchor" href="#changed-1-10-0"></a></h3>
+<ul><li>Breaking: Renamed the setting used to pass soil and hydrology parameters. <code>write.config.SIPNET</code> previously read these from <code>settings$run$inputs$soilinitcond</code>, now <code>settings$run$inputs$soil_physics</code> to better reflect that these are state factors applicable to the whole run rather than initial conditions (Quianyu Li, #3406).</li>
+<li>model2netcdf.SIPNET no longer writes separate <code>&lt;year&gt;.nc.var</code> files for every year of output. Use <code><a href="https://rdrr.io/pkg/PEcAn.utils/man/nc_write_varfiles.html" class="external-link">PEcAn.utils::nc_write_varfiles()</a></code> to create these as needed (#3611).</li>
+<li>Restart and met2model functions now print less to the console unless <code>verbose = TRUE</code> (#3544, #3563).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="fixed-1-10-0">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-10-0"></a></h3>
 <ul><li>
-<code>write.config.SIPNET</code> now checks more carefully whether an optional variable exists in an initial condition file before trying to read it, therefore printing fewer messages about (expectedly) missing variables. (#3545)</li>
+<code>write.config.SIPNET</code> now checks more carefully whether an optional variable exists in an initial condition file before trying to read it, therefore printing fewer messages about (expectedly) missing variables (#3545).</li>
 <li>When passed a vector of multiple input paths, <code>write.config.SIPNET</code> was choosing one at random; it now throws an error (Blesson Thomas, #3298). Note that a single input path per call has always been the intended usage; being passed many was a second bug in PEcAn.uncertainty that is also now fixed.</li>
-<li>Fixed a bug within the <code>model2netcdf.SIPNET</code> function where we assumed the constant calculations of <code>pecan_start_doy</code> across years (the calculations should vary depending on the last date from the last loop and the start date of the current loop), which will lead to incorrect calculations of the start <code>sub_dates</code> and <code>sub_dates_cf</code> if we are jumping between years (e.g., from 2012-12-31 to 2013-01-01).</li>
+<li>
+<code>model2netcdf.SIPNET</code> no longer assumes a constant value of <code>pecan_start_doy</code> across years, which lead to incorrect calculations of <code>sub_dates</code> and <code>sub_dates_cf</code> at year boundaries (@DongchenZ, #3622).</li>
+<li>When phenology inputs contain missing values, <code>write.config.SIPNET</code> now tries to use an average across years for that site before falling back to fixed cross-site defaults (Quianyu Li, #3680).</li>
+<li>
+<code>write.config.SIPNET</code> now adjusts soil water capacity to match the specified soil depth (#3634).</li>
+<li>Fixed unit errors in <code>write.config.SIPNET</code> calculation of <code>leafCSpWt</code> and <code>Amax</code> (#3608, #3664).</li>
 </ul></div>
 </div>
     <div class="section level2">

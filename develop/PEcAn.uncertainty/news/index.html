@@ -36,13 +36,27 @@
 <ul><li>run.ensemble.analysis() now respects <code>settings$modeloutdir</code> rather than assuming an <code>out/</code> folder inside <code>settings$outdir</code> (@Akash-paluvai, #3722).</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.8.2" id="pecanuncertainty-182">PEcAn.uncertainty 1.8.2<a class="anchor" aria-label="anchor" href="#pecanuncertainty-182"></a></h2>
-<ul><li>PEcAn.uncertainty is now distributed under the BSD 3-clause license instead of the NCSA Open Source license.</li>
-<li>Plotting sensitivity now makes less noise in the console and once again produces a one-page PDF as intended.</li>
-<li>
-<code>write.ensemble.configs</code> and <code>write.sa.configs</code> now generate an ensemble id if one is not provided in a DB-free run. Runs with DB continue to always generate a new id. Note that multi-site runs with no id provided will now get a separate ensemble ID (and thus generate separate analyses) for each site.</li>
-<li>Documented that <code>runModule.run.sensitivity.analysis</code> does not yet work with multisite settings. This will be fixed in a future release.</li>
+<h2 class="pkg-version" data-toc-text="1.9.0" id="pecanuncertainty-190">PEcAn.uncertainty 1.9.0<a class="anchor" aria-label="anchor" href="#pecanuncertainty-190"></a></h2>
+<div class="section level3">
+<h3 id="license-change-1-9-0">License change<a class="anchor" aria-label="anchor" href="#license-change-1-9-0"></a></h3>
+<p>PEcAn.uncertainty is now distributed under the BSD 3-clause license instead of the NCSA Open Source license.</p>
+</div>
+<div class="section level3">
+<h3 id="added-1-9-0">Added<a class="anchor" aria-label="anchor" href="#added-1-9-0"></a></h3>
+<ul><li>Added the shared <code>input_design</code> matrix, generated via new funtion <code><a href="../reference/generate_joint_ensemble_design.html">generate_joint_ensemble_design()</a></code>, keeps parameter draws and sampled inputs aligned across <code>run.write.configs()</code>, <code><a href="../reference/write.ensemble.configs.html">write.ensemble.configs()</a></code>, and <code><a href="../reference/write.sa.configs.html">write.sa.configs()</a></code>. (@blesson-07, #3535, #3677).</li>
+<li>New function <code>compute_sobol_indices</code> for use in global sensitivity analyses (@blesson-07, #3612).</li>
 </ul></div>
+<div class="section level3">
+<h3 id="changed-1-9-0">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-0"></a></h3>
+<ul><li>Breaking: <code>write.ensemble.configs</code> gains new mandatory arguments <code>input_design</code> and <code>ensemble.size</code>, and removes argument <code>samples</code>. Note that <code>input_design</code> and <code>ensemble.size</code> are added to the <em>beginning</em> of the argument list, so calls passing <code>defaults</code> unnamed as the first arg will break (#3612, #3634).</li>
+<li>Breaking: <code>input.ens.gen</code> gains new mandatory argument <code>ensemble_size</code>, added between the existing <code>settings</code> and <code>input</code> args.</li>
+<li>Plotting sensitivity now makes less noise in the console and once again produces a one-page PDF as intended (#3560).</li>
+<li>
+<code>write.ensemble.configs</code> and <code>write.sa.configs</code> now generate an ensemble id if one is not provided in a DB-free run (#3654). Runs with DB continue to always generate a new id. Note that multi-site runs with no id provided will now get a separate ensemble ID (and thus generate separate analyses) for each site.</li>
+<li>Documented that <code>runModule.run.sensitivity.analysis</code> does not yet work with multisite settings. This will be fixed in a future release.</li>
+<li>The default sampling method of <code>get.ensemble.samples</code> has changed from “uniform” to “random” (#3535).</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.1" id="pecanuncertainty-181">PEcAn.uncertainty 1.8.1<a class="anchor" aria-label="anchor" href="#pecanuncertainty-181"></a></h2>
 <ul><li>

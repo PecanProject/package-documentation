@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">PEcAn.LPJGUESS</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.8.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.9.0</small>
 
     <a href="../index.html" style="padding: 0em 1em">← Up</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +32,10 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.8.1" id="pecanlpjguess-181">PEcAn.LPJGUESS 1.8.1<a class="anchor" aria-label="anchor" href="#pecanlpjguess-181"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.9.0" id="pecanlpjguess-190">PEcAn.LPJGUESS 1.9.0<a class="anchor" aria-label="anchor" href="#pecanlpjguess-190"></a></h2>
 <ul><li>model2netcdf.LPJGUESS no longer writes separate <code>&lt;year&gt;.nc.var</code> files for every year of output. Use <code><a href="https://rdrr.io/pkg/PEcAn.utils/man/nc_write_varfiles.html" class="external-link">PEcAn.utils::nc_write_varfiles()</a></code> to create these as needed.</li>
+<li>Support for model restarts via new functions read.restart.LPJGUESS, read.binary.LPJGUESS, write.restart.LPJGUESS and write.binary.LPJGUESS (#3533, @yinghaoSunn)</li>
+<li>CRU driver tweaks</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.0" id="pecanlpjguess-180">PEcAn.LPJGUESS 1.8.0<a class="anchor" aria-label="anchor" href="#pecanlpjguess-180"></a></h2>

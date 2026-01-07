@@ -35,13 +35,15 @@
 <h2 class="pkg-version" data-toc-text="1.9.1" id="pecansettings-191">PEcAn.settings 1.9.1<a class="anchor" aria-label="anchor" href="#pecansettings-191"></a></h2>
 <div class="section level3">
 <h3 id="fixed-1-9-1">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-9-1"></a></h3>
-<ul><li>listToXml.MultiSettings now produces valid XML from a MultiSettings with length 1.</li>
-<li>setEnsemblePaths no longer wraps single paths in a list, giving <code>&lt;path&gt;/your/file.here&lt;/path&gt;</code> instead of the previous <code>&lt;path&gt;&lt;path1&gt;/your/file.here&lt;/path1&gt;&lt;/path&gt;</code>.</li>
+<ul><li>listToXml.MultiSettings now produces valid XML from a MultiSettings with length 1 (#3546) .</li>
+<li>setEnsemblePaths no longer wraps single paths in a list, giving <code>&lt;path&gt;/your/file.here&lt;/path&gt;</code> instead of the previous <code>&lt;path&gt;&lt;path1&gt;/your/file.here&lt;/path1&gt;&lt;/path&gt;</code> (#3561).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changed-1-9-1">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-1"></a></h3>
-<ul><li>The <code>tag</code> argument to <code><a href="../reference/listToXml.html">listToXml()</a></code> is now optional and will default to “pecan” if not specified. This sets the name of the root tag of the resulting XML object.</li>
-<li>The first argument of <code>listToXml.MultiSettings()</code> has been renamed from <code>item</code> to <code>x</code>, and it now accepts but ignores <code>...</code>, both for consistency with the generic.</li>
+<ul><li>The <code>tag</code> argument to <code><a href="../reference/listToXml.html">listToXml()</a></code> is now optional and will default to “pecan” if not specified. This sets the name of the root tag of the resulting XML object (#3558).</li>
+<li>The first argument of <code>listToXml.MultiSettings()</code> has been renamed from <code>item</code> to <code>x</code>, and it now accepts but ignores <code>...</code>, both for consistency with the generic (#3558).</li>
+<li>
+<code><a href="../reference/setEnsemblePaths.html">setEnsemblePaths()</a></code> no longer restricts the set of values accepted for <code>input_type</code> (#3633)</li>
 </ul></div>
 </div>
     <div class="section level2">

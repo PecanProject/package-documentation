@@ -34,6 +34,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.2" id="pecanstics-182">PEcAn.STICS 1.8.2<a class="anchor" aria-label="anchor" href="#pecanstics-182"></a></h2>
 <ul><li>model2netcdf.STICS no longer writes separate <code>&lt;year&gt;.nc.var</code> files for every year of output. Use <code><a href="https://rdrr.io/pkg/PEcAn.utils/man/nc_write_varfiles.html" class="external-link">PEcAn.utils::nc_write_varfiles()</a></code> to create these as needed.</li>
+<li>
+<code><a href="../reference/write.config.STICS.html">write.config.STICS()</a></code> now modifies parameters with vectors rather than individually, substantially speeding up XML creation (@qdbell, #3395)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.1" id="pecanstics-181">PEcAn.STICS 1.8.1<a class="anchor" aria-label="anchor" href="#pecanstics-181"></a></h2>

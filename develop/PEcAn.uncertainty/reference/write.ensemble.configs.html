@@ -63,7 +63,11 @@ a name to distinguish the output files, and the directory to place the files.</p
 
 
 <dl><dt id="arg-input-design">input_design<a class="anchor" aria-label="anchor" href="#arg-input-design"></a></dt>
-<dd><p>the input indices for samples</p></dd>
+<dd><p>design matrix describing sampled inputs (see
+`run.write.configs()`). Columns named after `settings$run$inputs` tags give
+1-based indices into each input's `path` list and rows follow run order.
+Requires `nrow(input_design) &gt;= ensemble.size`;
+extra rows are ignored.</p></dd>
 
 
 <dt id="arg-ensemble-size">ensemble.size<a class="anchor" aria-label="anchor" href="#arg-ensemble-size"></a></dt>
