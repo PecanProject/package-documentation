@@ -14,6 +14,7 @@
 <url><loc>/reference/Read.IC.info.BADM.html</loc></url>
 <url><loc>/reference/Read_Tucson.html</loc></url>
 <url><loc>/reference/Soilgrids_SoilC_prep.html</loc></url>
+<url><loc>/reference/bism_kc_by_crop.html</loc></url>
 <url><loc>/reference/buildJAGSdata_InventoryRings.html</loc></url>
 <url><loc>/reference/clip_and_save_raster_file.html</loc></url>
 <url><loc>/reference/cohort2pool.html</loc></url>
@@ -23,6 +24,8 @@
 <url><loc>/reference/download_package_rm.html</loc></url>
 <url><loc>/reference/ens_veg_module.html</loc></url>
 <url><loc>/reference/estimate_dirichlet_parameters.html</loc></url>
+<url><loc>/reference/eto_to_etc.html</loc></url>
+<url><loc>/reference/eto_to_etc_bism.html</loc></url>
 <url><loc>/reference/extract.stringCode.html</loc></url>
 <url><loc>/reference/extract_FIA.html</loc></url>
 <url><loc>/reference/extract_NEON_veg.html</loc></url>
@@ -45,6 +48,7 @@
 <url><loc>/reference/id_resolveable.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/iscn_soc.html</loc></url>
+<url><loc>/reference/landiq_crop_mapping_codes.html</loc></url>
 <url><loc>/reference/load_veg.html</loc></url>
 <url><loc>/reference/look_up_fertilizer_components.html</loc></url>
 <url><loc>/reference/matchInventoryRings.html</loc></url>
