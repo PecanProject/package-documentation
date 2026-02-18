@@ -99,13 +99,13 @@ This function should be ready to any GDAL supported image format.</p>
 <span class="r-in"><span>  <span class="fu">gdal_conversion</span><span class="op">(</span>in_path <span class="op">=</span> <span class="va">in_path</span>, </span></span>
 <span class="r-in"><span>    outfolder <span class="op">=</span> <span class="va">outfolder</span>, </span></span>
 <span class="r-in"><span>    band_name <span class="op">=</span> <span class="cn">NULL</span>, </span></span>
-<span class="r-in"><span>    just_band_name <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    just_band_name <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># try convert the first band of the available band names to GeoTIFF file.</span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> </span></span>
 <span class="r-in"><span>  <span class="fu">gdal_conversion</span><span class="op">(</span>in_path <span class="op">=</span> <span class="va">in_path</span>, </span></span>
 <span class="r-in"><span>    outfolder <span class="op">=</span> <span class="va">outfolder</span>, </span></span>
 <span class="r-in"><span>    band_name <span class="op">=</span> <span class="va">band_names</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, </span></span>
-<span class="r-in"><span>    just_band_name <span class="op">=</span> <span class="cn">F</span>, </span></span>
+<span class="r-in"><span>    just_band_name <span class="op">=</span> <span class="cn">FALSE</span>, </span></span>
 <span class="r-in"><span>    target_format <span class="op">=</span> <span class="st">".tif"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
