@@ -55,27 +55,54 @@ are shared across sites to ensure consistent parameter sampling.</p>
 
 
 <dl><dt id="arg-settings">settings<a class="anchor" aria-label="anchor" href="#arg-settings"></a></dt>
-<dd><p>A PEcAn settings object containing ensemble configuration</p></dd>
+<dd><p>PEcAn settings object. This function directly uses:</p><ul><li><p><code>settings$outdir</code> - Output directory path for samples.Rdata</p></li>
+<li><p><code>settings$pfts</code> - List of PFTs (extracts <code>posterior.files</code>)</p></li>
+<li><p><code>settings$ensemble$samplingspace</code> - Input sampling configuration</p></li>
+<li><p><code>settings$run$inputs</code> - Input paths for each input type</p></li>
+</ul><p>When samples.Rdata doesn't exist, settings is passed to
+<code><a href="get.parameter.samples.html">get.parameter.samples</a></code> which additionally requires:</p><ul><li><p><code>settings$ensemble</code> - Ensemble configuration</p></li>
+<li><p><code>settings$database$bety</code> - Database connection (optional)</p></li>
+<li><p><code>settings$host$name</code> - Host name for dbfile.check (optional)</p></li>
+</ul></dd>
 
 
 <dt id="arg-ensemble-size">ensemble_size<a class="anchor" aria-label="anchor" href="#arg-ensemble-size"></a></dt>
-<dd><p>Integer specifying the number of ensemble members
-Since the `input_design` will only be generated once for the entire model run,
-the only situation, where we might want to recycle the existing `ensemble_samples`,
-is when we split and submit the larger SDA runs (e.g., 8,000 sites) into
-smaller SDA experiments (e.g., 100 sites per job), where we want to keep using
-the same parameters rather than creating new parameters for each job.</p></dd>
+<dd><p>Integer specifying the number of ensemble members.
+The input_design is generated once for the entire model run. You might
+want to recycle existing ensemble_samples when splitting larger runs
+into smaller jobs while keeping the same parameters.</p></dd>
 
 
 <dt id="arg-sobol">sobol<a class="anchor" aria-label="anchor" href="#arg-sobol"></a></dt>
-<dd><p>for activating sobol</p></dd>
+<dd><p>Logical. If TRUE, returns a <code><a href="https://rdrr.io/pkg/sensitivity/man/soboljansen.html" class="external-link">sensitivity::soboljansen</a></code>
+object for Sobol sensitivity analysis.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list containing ensemble samples and indices
-  If `sobol = TRUE`, the list will be a `sensitivity::soboljansen()`
-  result and will contain the components documented therein.</p>
+    <p>A list containing ensemble samples and indices.
+  If <code>sobol = FALSE</code>, returns <code>list(X = design_matrix)</code>.
+  If <code>sobol = TRUE</code>, returns a <code><a href="https://rdrr.io/pkg/sensitivity/man/soboljansen.html" class="external-link">sensitivity::soboljansen()</a></code>
+  result object with the design matrix in <code>$X</code> plus additional
+  components for Sobol index calculations.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Note on internal dependencies</p>
+<p>If samples.Rdata doesn't exist we call get.parameter.samples(), which loads
+parameter distributions.</p>
+<p>In practice it:
+- uses pft$posterior.files directly when it is defined (an Rdata file with
+  post.distns or prior.distns),
+- otherwise figures out an output directory from pft$outdir or, if needed,
+  via pft$posteriorid in the database,
+- then looks in that directory for post.distns.Rdata, falling back to
+  prior.distns.Rdata,
+- and, for MCMC posteriors, looks up trait.mcmc*.Rdata linked to the same
+  posteriorid or a trait.mcmc.Rdata file in that directory.</p>
+<p>Difference from generate_OAT_SA_design: This function samples inputs
+randomly or quasi-randomly, while generate_OAT_SA_design holds all
+non-parameter inputs constant to isolate parameter effects.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
