@@ -11,8 +11,8 @@
 <url><loc>/reference/calcSpatialCov.list.html</loc></url>
 <url><loc>/reference/calcSpatialCov.matrix.html</loc></url>
 <url><loc>/reference/distance.html</loc></url>
-<url><loc>/reference/distance.martix.html</loc></url>
-<url><loc>/reference/distance12.martix.html</loc></url>
+<url><loc>/reference/distance12_matrix.html</loc></url>
+<url><loc>/reference/distance_matrix.html</loc></url>
 <url><loc>/reference/gp_mle.html</loc></url>
 <url><loc>/reference/gp_mle2.html</loc></url>
 <url><loc>/reference/groupid.html</loc></url>
@@ -31,7 +31,7 @@
 <url><loc>/reference/plot.mvjump.html</loc></url>
 <url><loc>/reference/predict.GP.html</loc></url>
 <url><loc>/reference/predict.density.html</loc></url>
-<url><loc>/reference/summarize.GP.html</loc></url>
+<url><loc>/reference/summarize_GP.html</loc></url>
 <url><loc>/reference/update.jump.html</loc></url>
 <url><loc>/reference/update.mvjump.html</loc></url>
 </urlset>
