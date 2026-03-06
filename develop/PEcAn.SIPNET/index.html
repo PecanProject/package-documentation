@@ -51,11 +51,27 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>PEcAn Functions Used for Ecological Forecasts and Reanalysis</p>
+<div class="section level2">
+<h2 id="what-is-sipnet">What is SIPNET?<a class="anchor" aria-label="anchor" href="#what-is-sipnet"></a>
+</h2>
+<p>The SIPNET v1 (<strong>S</strong>implified PnET (<strong>P</strong>hotosynthesis** and <strong>E</strong>vapo<strong>t</strong>ranspiration)) model is a lightweight ecosystem model designed to simulate ecosystem carbon and water dynamics.</p>
+<p>SIPNET v2 added a nitrogen cycle, trace greenhouse-gas (N₂O, CH₄) fluxes, and support for cropland and ecosystem management. As of PEcAn v1.10, support for SIPNET v2 is partially implemented and under active development.</p>
+<p><strong>Key Features:</strong> - Simulates photosynthesis, respiration, allocation, soil water, soil temperature, and nitrogen cycling - Operates on sub-daily time steps - Tracks vegetation, litter, soil, and mineral-N pools - Event-based management for agricultural processes (planting, harvest, tillage, irrigation) - Clean, modular, BSD-licensed codebase suitable for research and production</p>
+<p>For comprehensive SIPNET documentation, see the <a href="https://pecanproject.github.io/sipnet" class="external-link">SIPNET project website</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="using-sipnet-via-pecan">Using SIPNET via PEcAn<a class="anchor" aria-label="anchor" href="#using-sipnet-via-pecan"></a>
+</h2>
+<p>PEcAn.SIPNET is the PEcAn interface package that enables SIPNET integration with the PEcAn workflow system. This package: - Converts PEcAn-standard inputs to SIPNET format - Manages SIPNET model configuration and execution - Converts SIPNET outputs to netCDF in PEcAn standard format - Enables data assimilation, sensitivity analysis, and ensemble runs within the PEcAn modeling framework</p>
+<p><strong>Getting Started:</strong> - <a href="https://pecanproject.github.io/pecan-documentation/develop/rendered-demo-notebooks/run_pecan.html" class="external-link">Demo 1: Basic PEcAn Run</a> - <a href="https://pecanproject.github.io/pecan-documentation/develop/models-sipnet.html" class="external-link">SIPNET in the PEcAn Book</a></p>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of <code>PEcAn.SIPNET</code> from r-universe like so:</p>
+<div class="section level3">
+<h3 id="install-pecansipnet-package">Install PEcAn.SIPNET Package<a class="anchor" aria-label="anchor" href="#install-pecansipnet-package"></a>
+</h3>
+<p>You can install the development version of <code>PEcAn.SIPNET</code> from r-universe:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable repository from pecanproject</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -63,18 +79,49 @@
 <span>  CRAN <span class="op">=</span> <span class="st">'https://cloud.r-project.org'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># Download and install PEcAn.SIPNET in R</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'PEcAn.SIPNET'</span><span class="op">)</span></span></code></pre></div>
-<p>Or you can install directly from GitHub with the remotes package like so:</p>
+<p>Or install directly from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'pecanproject/pecan'</span>,  subdir <span class="op">=</span> <span class="st">"models/sipnet"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'pecanproject/pecan'</span>, subdir <span class="op">=</span> <span class="st">"models/sipnet"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="install-sipnet-model">Install SIPNET Model<a class="anchor" aria-label="anchor" href="#install-sipnet-model"></a>
+</h3>
+<p>To use PEcAn.SIPNET, you also need the SIPNET model executable installed on your system. You can download precompiled versions from the SIPNET <a href="https://github.com/PecanProject/sipnet/releases" class="external-link">releases page</a>, or <a href="https://github.com/PecanProject/sipnet" class="external-link">download the code</a> from Github and compile it yourself following the official <a href="https://github.com/PecanProject/sipnet/blob/master/docs/user-guide/getting-started.md" class="external-link">instructions</a>.</p>
+</div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pecanproject.github.io" class="external-link">PEcAn.SIPNET</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
+<ul>
+<li>
+<strong>PEcAn.SIPNET Package Docs:</strong> <a href="https://pecanproject.github.io/package-documentation/develop/PEcAn.SIPNET/" class="external-link uri">https://pecanproject.github.io/package-documentation/develop/PEcAn.SIPNET/</a>
+</li>
+<li>
+<strong>SIPNET Model Docs:</strong> <a href="https://pecanproject.github.io/sipnet" class="external-link uri">https://pecanproject.github.io/sipnet</a>
+</li>
+<li>
+<strong>PEcAn Book - SIPNET Chapter:</strong> <a href="https://pecanproject.github.io/pecan-documentation/develop/models-sipnet.html" class="external-link uri">https://pecanproject.github.io/pecan-documentation/develop/models-sipnet.html</a>
+</li>
+<li>
+<strong>Source Code:</strong> <a href="https://github.com/PecanProject/pecan/tree/develop/models/sipnet" class="external-link uri">https://github.com/PecanProject/pecan/tree/develop/models/sipnet</a>
+</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="learn-more">Learn More<a class="anchor" aria-label="anchor" href="#learn-more"></a>
+</h2>
+<ul>
+<li>
+<strong>PEcAn Project:</strong> <a href="https://pecanproject.github.io" class="external-link uri">https://pecanproject.github.io</a>
+</li>
+<li>
+<strong>Tutorials:</strong> <a href="https://pecanproject.github.io/tutorials/" class="external-link uri">https://pecanproject.github.io/tutorials/</a>
+</li>
+<li>
+<strong>SIPNET Repository:</strong> <a href="https://github.com/PecanProject/sipnet" class="external-link uri">https://github.com/PecanProject/sipnet</a>
+</li>
+</ul>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
