@@ -35,6 +35,17 @@
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecansipnet-11009000">PEcAn.SIPNET 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecansipnet-11009000"></a></h2>
 <ul><li>Updated README with a more complete model description and instructions for installing SIPNET (#3705)</li>
 <li>Removed <code>tests/Rcheck_reference.log</code>, which was used to ignore historic check messages that have now been fixed.</li>
+<li>Initial support for SIPNET v2.0, whose features include simplified input files, simulation of management events, tracking of N cycle components, and anaerobic CH4 generation.</li>
+<li>Breaking: <code>met2model.SIPNET</code> now writes 12-column clim files (as expected by Sipnet &gt;= v2.0) by default. To get the previously standard 14-column output, set <code>clim_format_version = "v1"</code>.</li>
+<li>NITROGEN_CYCLE, LITTER_POOL, and ANAEROBIC enabled by default for SIPNET v2 runs.</li>
+<li>
+<code>model2netcdf.SIPNET</code> now handles both V1 and v2 output header format (v2 has no Notes line; SIPNET #267).</li>
+<li>Removed 13 obsolete v1 parameters from the v2 parameter template <code>template.param_v2</code> (microbeInit, qualityLeaf, etc.) and added 16 new nitrogen cycle, anaerobic, and methane parameters.</li>
+<li>Added nitrogen cycle (mineral_N, soil_organic_N, litter_N, N2O, N leaching, N fixation, N uptake) and methane (CH4) output conversion to NetCDF in <code>model2netcdf.SIPNET</code>.</li>
+<li>Fixed crash when <code>litterWater</code> column absent in v2 output (LITTER_WATER removed in v2).</li>
+<li>
+<code>write.config.SIPNET</code> now validates runtime flag dependencies (NITROGEN_CYCLE requires LITTER_POOL and ANAEROBIC) and guards v1 only parameters (litterWHC, litWaterDrainRate, litterWFracInit, microbeInit, m_ballBerry) from being set when using v2 templates.</li>
+<li>Removed workarounds for column naming bugs in output from long-outdated legacy Sipnet version <code>sipnet.unk</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.10.0" id="pecansipnet-1100">PEcAn.SIPNET 1.10.0<a class="anchor" aria-label="anchor" href="#pecansipnet-1100"></a></h2>
