@@ -21,6 +21,9 @@
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/input.ens.gen.html</loc></url>
 <url><loc>/reference/kurtosis.html</loc></url>
+<url><loc>/reference/load.posteriors.from.path.html</loc></url>
+<url><loc>/reference/load.posteriors.html</loc></url>
+<url><loc>/reference/load.posteriors.legacy.html</loc></url>
 <url><loc>/reference/plot_flux_uncertainty.html</loc></url>
 <url><loc>/reference/plot_sensitivities.html</loc></url>
 <url><loc>/reference/plot_sensitivity.html</loc></url>
