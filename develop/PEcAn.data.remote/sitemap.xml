@@ -29,6 +29,7 @@
 <url><loc>/reference/extract_NLCD.html</loc></url>
 <url><loc>/reference/extract_phenology_MODIS.html</loc></url>
 <url><loc>/reference/extract_thredds_nc.html</loc></url>
+<url><loc>/reference/format_try_for_ma.html</loc></url>
 <url><loc>/reference/gdal_conversion.html</loc></url>
 <url><loc>/reference/gdal_translate.html</loc></url>
 <url><loc>/reference/get_site_info.html</loc></url>
@@ -43,5 +44,6 @@
 <url><loc>/reference/remotedata_db_check.html</loc></url>
 <url><loc>/reference/remotedata_db_insert.html</loc></url>
 <url><loc>/reference/set_stage.html</loc></url>
+<url><loc>/reference/try_trait_mapping.html</loc></url>
 </urlset>
 
