@@ -36,6 +36,7 @@
 <ul><li>Breaking: <code>loadPath.SitePFT(path)</code> now takes only one argument, removing the previously required but ignored <code>settings</code> (@Thomas-Sedhom, #3834).</li>
 <li>
 <code><a href="../reference/check.model.settings.html">check.model.settings()</a></code> now skips lookup of the model binary path if no DB connection is provided (#3863).</li>
+<li>When no DB connection is provided to <code>check.database.settings</code>, it now skips with an INFO instead of a WARN. Rationale: now that the database is optional, a settings with no DB block is a valid settings.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.1" id="pecansettings-191">PEcAn.settings 1.9.1<a class="anchor" aria-label="anchor" href="#pecansettings-191"></a></h2>
