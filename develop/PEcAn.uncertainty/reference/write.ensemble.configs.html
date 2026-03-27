@@ -99,7 +99,10 @@ extra rows are ignored.</p></dd>
 
 
 <dt id="arg-restart">restart<a class="anchor" aria-label="anchor" href="#arg-restart"></a></dt>
-<dd><p>In case this is a continuation of an old simulation. restart needs to be a list with name tags of runid, inputs, new.params (parameters), new.state (initial condition), ensemble.id (ensemble id), start.time and stop.time.See Details.</p></dd>
+<dd><p>In case this is a continuation of an old simulation.
+Needs to be a list with name tags of runid, inputs, new.params (parameters),
+new.state (initial condition), ensemble.id (ensemble id), start.time and stop.time.
+See Details.</p></dd>
 
 
 <dt id="arg-rename">rename<a class="anchor" aria-label="anchor" href="#arg-rename"></a></dt>
@@ -108,13 +111,21 @@ extra rows are ignored.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>list, containing $runs = data frame of runids, $ensemble.id = the ensemble ID for these runs and $samples with ids and samples used for each tag.  Also writes sensitivity analysis configuration files as a side effect</p>
+    <p>list, containing
+ $runs = data frame of runids,
+ $ensemble.id = the ensemble ID for these runs,
+ and $samples with ids and samples used for each tag.
+ Also writes sensitivity analysis configuration files as a side effect</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The restart functionality is developed using model specific functions by calling write_restart.modelname function. First, you need to make sure that this function is already exist for your desired model.See here <a href="https://pecanproject.github.io/pecan-documentation/latest/pecan-models.html" class="external-link">https://pecanproject.github.io/pecan-documentation/latest/pecan-models.html</a>
-new state is a dataframe with a different column for each state variable. The number of the rows in this dataframe needs to be the same as the ensemble size.
-The state variables that you can use for setting up initial conditions are model specific. Check the documentation of the write_restart.&lt;modelname&gt; function for the model you are using.
+    <p>The restart functionality is developed using model specific functions by calling write_restart.modelname function.
+First, you need to make sure that this function is already exist for your desired model.
+See here <a href="https://pecanproject.github.io/pecan-documentation/latest/pecan-models.html" class="external-link">https://pecanproject.github.io/pecan-documentation/latest/pecan-models.html</a>.
+new state is a dataframe with a different column for each state variable.
+The number of the rows in this dataframe needs to be the same as the ensemble size.
+The state variables that you can use for setting up initial conditions are model specific.
+Check the documentation of the write_restart.&lt;modelname&gt; function for the model you are using.
 The units for the state variables need to be in the PEcAn standard units which can be found in <a href="https://rdrr.io/pkg/PEcAn.utils/man/standard_vars.html" class="external-link">standard_vars</a>.
 new.params also has similar structure to ensemble.samples which is sent as an argument.</p>
     </div>
