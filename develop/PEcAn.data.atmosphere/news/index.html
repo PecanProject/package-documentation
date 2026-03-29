@@ -55,7 +55,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="changed-1-9-1">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-1"></a></h3>
-<ul><li>Dependency <code>ggplot2</code> is now suggested rather than required. It is used in two vignettes and for optional diagnostic plots from <code>debias_met_regression</code>.</li>
+<ul><li>Dependency <code>nneo</code>, used by <code>download.NEONmet</code>, is now suggested rather than required. Caution: <code>nneo</code> is unmaintained, has been archived by its author on GitHub, and may be removed from a future PEcAn release.</li>
+<li>Dependency <code>ggplot2</code> is now suggested rather than required. It is used in two vignettes and for optional diagnostic plots from <code>debias_met_regression</code>.</li>
 <li>
 <code>download.ERA5_cds</code> now downloads NetCDF directly (replacing internal conversion from grib) using the R package ecmwfr (replacing python dependency on cdsapi via reticulate) (#3547).</li>
 <li>
