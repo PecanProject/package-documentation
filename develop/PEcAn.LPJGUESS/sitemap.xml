@@ -7,9 +7,13 @@
 <url><loc>/reference/AbvGrndWood.html</loc></url>
 <url><loc>/reference/TotalCarbon.html</loc></url>
 <url><loc>/reference/adjust.biomass.LPJGUESS.html</loc></url>
+<url><loc>/reference/adjust.biomass.scaling.LPJGUESS.html</loc></url>
 <url><loc>/reference/adjust.density.LPJGUESS.html</loc></url>
 <url><loc>/reference/allometry.html</loc></url>
+<url><loc>/reference/calculateGridcellSOC.html</loc></url>
 <url><loc>/reference/calculateGridcellVariablePerPFT.html</loc></url>
+<url><loc>/reference/dot-pick_patch_for_seeding.html</loc></url>
+<url><loc>/reference/dot-seed_cohort_quick.html</loc></url>
 <url><loc>/reference/extract_from_state_by_key.html</loc></url>
 <url><loc>/reference/find_closing.html</loc></url>
 <url><loc>/reference/find_stream_size.html</loc></url>
@@ -23,12 +27,15 @@
 <url><loc>/reference/read_binary_LPJGUESS.html</loc></url>
 <url><loc>/reference/read_restart.LPJGUESS.html</loc></url>
 <url><loc>/reference/read_state.html</loc></url>
+<url><loc>/reference/safe_scale_N.html</loc></url>
 <url><loc>/reference/serialize_starts_ends.html</loc></url>
 <url><loc>/reference/split_inputs.LPJGUESS.html</loc></url>
 <url><loc>/reference/update_state_LPJGUESS.html</loc></url>
+<url><loc>/reference/update_state_both_LPJGUESS.html</loc></url>
 <url><loc>/reference/write.config.LPJGUESS.html</loc></url>
 <url><loc>/reference/write.insfile.LPJGUESS.html</loc></url>
 <url><loc>/reference/write_binary_LPJGUESS.html</loc></url>
+<url><loc>/reference/write_binary_LPJGUESS_flexible.html</loc></url>
 <url><loc>/reference/write_restart.LPJGUESS.html</loc></url>
 </urlset>
 
