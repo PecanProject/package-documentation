@@ -59,11 +59,12 @@
 
 
 <dl><dt id="arg-pft">pft<a class="anchor" aria-label="anchor" href="#arg-pft"></a></dt>
-<dd><p>list of settings for the pft whose traits to retrieve. See details</p></dd>
+<dd><p>list of settings for the pft whose traits to retrieve. See details.</p></dd>
 
 
 <dt id="arg-modeltype">modeltype<a class="anchor" aria-label="anchor" href="#arg-modeltype"></a></dt>
-<dd><p>type of model that is used, this is used to distinguish between different pfts with the same name.</p></dd>
+<dd><p>type of model that is used, this is used to distinguish
+between different pfts with the same name.</p></dd>
 
 
 <dt id="arg-dbfiles">dbfiles<a class="anchor" aria-label="anchor" href="#arg-dbfiles"></a></dt>
@@ -79,21 +80,57 @@
 
 
 <dt id="arg-forceupdate">forceupdate<a class="anchor" aria-label="anchor" href="#arg-forceupdate"></a></dt>
-<dd><p>set this to true to force an update, auto will check to see if an update is needed.</p></dd>
+<dd><p>set this to true to force an update, auto will check to
+see if an update is needed.</p></dd>
 
 
 <dt id="arg-write">write<a class="anchor" aria-label="anchor" href="#arg-write"></a></dt>
-<dd><p>(Logical) If `TRUE` updated posteriors will be written to
-BETYdb.  Defaults to FALSE.</p></dd>
+<dd><p>(Logical) If <code>TRUE</code> updated posteriors will be written to
+BETYdb.  Defaults to <code>FALSE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>updated pft with posteriorid</p>
+    <p>The <code>pft</code> input list, updated with <code>pft$posteriorid</code> set to the
+ID of the (possibly new) posterior record in BETYdb. The posterior ID can
+be used to locate the output files (<code>trait.data.Rdata</code>, <code>prior.distns.Rdata</code>,
+etc.) via BETYdb's <code>dbfiles</code> table.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>`pft` should be a list containing at least `name` and `outdir`, and optionally `posteriorid` and `constants`. BEWARE: All existing files in `outir` will be deleted!</p>
+    <p><code>pft</code> should be a list containing at least <code>name</code> and <code>outdir</code>, and
+optionally <code>posteriorid</code> and <code>constants</code>.</p>
+<p><strong>File-based side effects (saved to <code>pft$outdir</code>):</strong></p><dl><dt><code>trait.data.Rdata</code></dt>
+<dd><p>Contains a single object <code>trait.data</code>: a named
+list of data frames, one per trait. Each data frame has columns from
+BETYdb's traits/yields views (e.g., <code>mean</code>, <code>stat</code>, <code>n</code>, <code>site_id</code>,
+<code>treatment_id</code>). Names correspond to trait variable names
+(e.g., <code>"SLA"</code>, <code>"Vcmax"</code>).</p></dd>
+
+<dt><code>prior.distns.Rdata</code></dt>
+<dd><p>Contains a single object <code>prior.distns</code>: a
+data frame with one row per trait and columns <code>distn</code>, <code>parama</code>,
+<code>paramb</code>, and <code>n</code>. Row names are trait variable names. Traits listed
+in <code>pft$constants</code> are excluded.</p></dd>
+
+<dt><code>trait.data.csv</code></dt>
+<dd><p>CSV export of <code>trait.data</code> (all traits
+row-bound).</p></dd>
+
+<dt><code>prior.distns.csv</code></dt>
+<dd><p>CSV export of <code>prior.distns</code>.</p></dd>
+
+<dt><code>species.csv</code> or <code>cultivars.csv</code></dt>
+<dd><p>PFT membership list used to
+detect changes between runs.</p></dd>
+
+
+</dl><p><strong>Downstream contract:</strong> The files <code>trait.data.Rdata</code> and
+<code>prior.distns.Rdata</code> are expected by <code>run.meta.analysis.pft</code>, which
+loads them from <code>pft$outdir</code>. This implicit file-based coupling means
+the two functions must agree on directory path and object names. A future
+refactoring goal is to pass these objects directly via function arguments
+instead.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
