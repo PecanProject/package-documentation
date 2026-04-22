@@ -106,7 +106,9 @@ Only <code>defaults[[1]]$constants</code> is used; all other elements are silent
 
 
 <dt id="arg-trait-values">trait.values<a class="anchor" aria-label="anchor" href="#arg-trait-values"></a></dt>
-<dd><p>vector of samples for a given trait</p></dd>
+<dd><p>named list of trait values for each PFT. SIPNET can
+handle only one vegetation PFT, and an optional "soil" PFT for soil constants.
+<code>trait.values</code> that do not fit this format will throw a warning.</p></dd>
 
 
 <dt id="arg-settings">settings<a class="anchor" aria-label="anchor" href="#arg-settings"></a></dt>
