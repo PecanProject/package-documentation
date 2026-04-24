@@ -49,7 +49,7 @@
 <span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>TimeseriesPlot <span class="op">=</span> <span class="cn">FALSE</span>, OutlierDetection <span class="op">=</span> <span class="cn">FALSE</span>, send_email <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    keepNC <span class="op">=</span> <span class="cn">TRUE</span>, forceRun <span class="op">=</span> <span class="cn">TRUE</span>, run_parallel <span class="op">=</span> <span class="cn">TRUE</span>, MCMC.args <span class="op">=</span> <span class="cn">NULL</span>, merge_nc <span class="op">=</span></span>
 <span>    <span class="cn">TRUE</span>, execution <span class="op">=</span> <span class="st">"local"</span><span class="op">)</span>,</span>
-<span>  debias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cov.dir <span class="op">=</span> <span class="cn">NULL</span>, start.year <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
+<span>  debias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cov.dir <span class="op">=</span> <span class="cn">NULL</span>, t.start <span class="op">=</span> <span class="cn">NULL</span>, residual.lag <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -104,9 +104,11 @@ including `local` ,where we execute the model locally;
 
 
 <dt id="arg-debias">debias<a class="anchor" aria-label="anchor" href="#arg-debias"></a></dt>
-<dd><p>List: R list containing the covariance directory and the start year.
+<dd><p>List: R list containing the covariance directory, the start time point,
+and if we want to include the `residual.lag` as additional covariate.
 covariance directory should include GeoTIFF files named by year.
-start year is numeric input which decide when to start the debiasing feature.</p></dd>
+start time point is numeric input which decide when to start the debiasing feature.
+`residual.lag` is either TRUE or FALSE.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
