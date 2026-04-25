@@ -37,6 +37,9 @@
 <li>Added <code><a href="../reference/generate_OAT_SA_design.html">generate_OAT_SA_design()</a></code> for creating input design matrices for sensitivity analysis. This function ensures non-parameter inputs (met, IC, soil) are held constant, which is required for valid variance decomposition in one-at-a-time (OAT) sensitivity analysis (#3729)</li>
 <li>
 <code><a href="../reference/get.parameter.samples.html">get.parameter.samples()</a></code> now consistently accepts PFTs with no <code>outdir</code> specified. These previously failed when no database connection was available.</li>
+<li>Improved row alignment and text scaling in <code><a href="../reference/plot_variance_decomposition.html">plot_variance_decomposition()</a></code>.</li>
+<li>
+<code><a href="../reference/plot_variance_decomposition.html">plot_variance_decomposition()</a></code> gains argument <code>order_by</code>, sorting highest variance to the top by default. To reproduce old behavior, use <code>order_by = "none"</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.0" id="pecanuncertainty-190">PEcAn.uncertainty 1.9.0<a class="anchor" aria-label="anchor" href="#pecanuncertainty-190"></a></h2>
