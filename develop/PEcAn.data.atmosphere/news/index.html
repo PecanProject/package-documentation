@@ -51,7 +51,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="fixed-1-9-1">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-9-1"></a></h3>
-<ul><li>Updated <code>download.NOAA_GEFS</code> to work with the current (v12.3) release of GEFS (#3349).</li>
+<ul><li>Fixed <code>download_NOAA_GEFS_EFI</code>: the <code>sitename</code> filter compared the argument to itself (<code>sitename == sitename</code>), always returning data for all NEON sites instead of the requested one. Changed to <code>.data$sitename == sitename</code>.</li>
+<li>Updated <code>download.NOAA_GEFS</code> to work with the current (v12.3) release of GEFS (#3349).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="changed-1-9-1">Changed<a class="anchor" aria-label="anchor" href="#changed-1-9-1"></a></h3>
