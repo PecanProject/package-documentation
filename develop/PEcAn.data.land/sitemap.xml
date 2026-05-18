@@ -34,6 +34,7 @@
 <url><loc>/reference/estimate_dirichlet_parameters.html</loc></url>
 <url><loc>/reference/eto_to_etc.html</loc></url>
 <url><loc>/reference/eto_to_etc_bism.html</loc></url>
+<url><loc>/reference/event_parquet_to_json.html</loc></url>
 <url><loc>/reference/events_to_crop_cycle_starts.html</loc></url>
 <url><loc>/reference/extract.stringCode.html</loc></url>
 <url><loc>/reference/extract_FIA.html</loc></url>
@@ -52,6 +53,7 @@
 <url><loc>/reference/generate_soilgrids_ensemble.html</loc></url>
 <url><loc>/reference/get.attributes.html</loc></url>
 <url><loc>/reference/get.soil.html</loc></url>
+<url><loc>/reference/get_event_ensemble_ids.html</loc></url>
 <url><loc>/reference/get_resource_map.html</loc></url>
 <url><loc>/reference/get_veg_module.html</loc></url>
 <url><loc>/reference/ic_process.html</loc></url>
