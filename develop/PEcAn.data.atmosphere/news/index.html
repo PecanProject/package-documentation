@@ -51,7 +51,9 @@
 </ul></div>
 <div class="section level3">
 <h3 id="fixed-1-9-1">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-9-1"></a></h3>
-<ul><li>Fixed <code>download_NOAA_GEFS_EFI</code>: the <code>sitename</code> filter compared the argument to itself (<code>sitename == sitename</code>), always returning data for all NEON sites instead of the requested one. Changed to <code>.data$sitename == sitename</code>.</li>
+<ul><li>
+<code><a href="../reference/downscale_solar_geom_halfhour.html">downscale_solar_geom_halfhour()</a></code>: corrected the hour-of-day calculation from <code>* 48</code> to <code>* 24</code>. The previous formula produced a half-hour index (0-47) instead of an hour of day (0-23), causing <code><a href="../reference/cos_solar_zenith_angle.html">cos_solar_zenith_angle()</a></code> to compute a solar hour angle roughly pi radians off and therefore wrong potential shortwave radiation in all half-hourly downscaled met files.</li>
+<li>Fixed <code>download_NOAA_GEFS_EFI</code>: the <code>sitename</code> filter compared the argument to itself (<code>sitename == sitename</code>), always returning data for all NEON sites instead of the requested one. Changed to <code>.data$sitename == sitename</code>.</li>
 <li>Updated <code>download.NOAA_GEFS</code> to work with the current (v12.3) release of GEFS (#3349).</li>
 </ul></div>
 <div class="section level3">
