@@ -35,6 +35,8 @@
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecansipnet-11009000">PEcAn.SIPNET 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecansipnet-11009000"></a></h2>
 <ul><li>
 <code>split_inputs.SIPNET</code> now avoids internal time format conversions, giving a substantial speedup and reduced memory use when processing multi-year files.</li>
+<li>
+<code>model2netcdf.SIPNET</code> now detects the number of timesteps per day by taking the maximum count across all days in the first simulation year, rather than reading only from day 1. This prevents a factor-of-N error in flux unit conversions when the first day of output is partial (fewer timesteps than a complete day) (#3624, #3989).</li>
 <li>Fixed a unit error in model2netcdf.SIPNET’s calculation of <code>GWBI</code> (kgC/m2/sec) from <code>woodCreation</code> (actually gC/m2/timestep, was being treated as gC/m2/day).</li>
 <li>
 <code>model2netcdf.SIPNET</code> now takes NPP directly from sipnet.out rather than repeat Sipnet’s internal calculation (as GPP - Ra) with identical results.</li>
