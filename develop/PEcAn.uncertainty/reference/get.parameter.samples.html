@@ -52,7 +52,7 @@ that delegates computation to <code><a href="get_parameter_samples.html">get_par
 <span>  ensemble.size <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  posterior.files <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">settings</span><span class="op">$</span><span class="va">pfts</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  ens.sample.method <span class="op">=</span> <span class="st">"uniform"</span>,</span>
-<span>  save_to_disk <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  outdir <span class="op">=</span> <span class="va">settings</span><span class="op">$</span><span class="va">outdir</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -77,8 +77,12 @@ that delegates computation to <code><a href="get_parameter_samples.html">get_par
 <code>"uniform"</code></p></dd>
 
 
-<dt id="arg-save-to-disk">save_to_disk<a class="anchor" aria-label="anchor" href="#arg-save-to-disk"></a></dt>
-<dd><p>logical. If <code>TRUE</code> (default), saves <code>samples.Rdata</code>.</p></dd>
+<dt id="arg-outdir">outdir<a class="anchor" aria-label="anchor" href="#arg-outdir"></a></dt>
+<dd><p>character path; directory to write <code>samples.Rdata</code> to for
+provenance. Defaults to <code>settings$outdir</code>, preserving the legacy
+always-save behaviour for existing callers (none of which pass it).
+Pass <code>outdir = NULL</code> to skip the save entirely; the pure
+<code><a href="get_parameter_samples.html">get_parameter_samples()</a></code> never writes to disk regardless.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -101,7 +105,7 @@ independent samples are drawn from <code>post.distns</code>.</p></dd>
 
 
 </dl><p><strong>File-based side effects (saved to <code>settings$outdir</code>):</strong></p><dl><dt><code>samples.Rdata</code></dt>
-<dd><p>When <code>save_to_disk = TRUE</code>, bundles 5 objects:</p><ul><li><p><code>trait.samples</code> — Named list (PFT -&gt; trait -&gt; numeric vector of
+<dd><p>When <code>outdir</code> is non-<code>NULL</code> (the default), bundles 5 objects:</p><ul><li><p><code>trait.samples</code> — Named list (PFT -&gt; trait -&gt; numeric vector of
 length <code>iterations</code>). Raw MCMC or prior-sampled values.</p></li>
 <li><p><code>sa.samples</code> — Named list (PFT -&gt; matrix[n_quantiles x
 n_traits]). Quantile-based samples for sensitivity analysis.</p></li>
