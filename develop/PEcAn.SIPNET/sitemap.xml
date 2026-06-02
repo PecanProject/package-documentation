@@ -17,9 +17,11 @@
 <url><loc>/reference/split_inputs.SIPNET.html</loc></url>
 <url><loc>/reference/split_sipnet_events.html</loc></url>
 <url><loc>/reference/split_sipnet_met.html</loc></url>
+<url><loc>/reference/subset_paths.html</loc></url>
 <url><loc>/reference/veg2model.SIPNET.html</loc></url>
 <url><loc>/reference/write.config.SIPNET.html</loc></url>
 <url><loc>/reference/write.events.SIPNET.html</loc></url>
 <url><loc>/reference/write_restart.SIPNET.html</loc></url>
+<url><loc>/reference/write_segmented_configs.SIPNET.html</loc></url>
 </urlset>
 
