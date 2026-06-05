@@ -47,6 +47,7 @@
 <url><loc>/reference/get_machine_info.html</loc></url>
 <url><loc>/reference/get_postgres_envvars.html</loc></url>
 <url><loc>/reference/get_run_ids.html</loc></url>
+<url><loc>/reference/get_trait_data_pft.html</loc></url>
 <url><loc>/reference/get_users.html</loc></url>
 <url><loc>/reference/get_var_names.html</loc></url>
 <url><loc>/reference/get_workflow_ids.html</loc></url>
