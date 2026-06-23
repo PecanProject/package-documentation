@@ -34,6 +34,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.7.5.9000" id="pecanbenchmark-1759000">PEcAn.benchmark 1.7.5.9000<a class="anchor" aria-label="anchor" href="#pecanbenchmark-1759000"></a></h2>
 <div class="section level3">
+<h3 id="added-1-7-5-9000">Added<a class="anchor" aria-label="anchor" href="#added-1-7-5-9000"></a></h3>
+<ul><li>Added Python pipeline (<code>inst/ilamb/</code>) to convert PEcAn SDA reanalysis GeoTIFFs to ILAMB-compatible CF netCDF (cVeg, cSoil, mrsol, lai) with unit tests (#4019).</li>
+</ul></div>
+<div class="section level3">
 <h3 id="fixed-1-7-5-9000">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-7-5-9000"></a></h3>
 <ul><li><p><code><a href="../reference/metric_PPMC.html">metric_PPMC()</a></code>: added <code>use = "pairwise.complete.obs"</code> to <code><a href="https://rdrr.io/r/stats/cor.html" class="external-link">stats::cor()</a></code> so the Pearson correlation is computed on available pairs rather than returning <code>NA</code> whenever any observation is missing. This matches the behaviour of <code><a href="../reference/metric_cor.html">metric_cor()</a></code> in the same package.</p></li>
 <li><p>Improved clarity of code examples that are not run at check time.</p></li>
