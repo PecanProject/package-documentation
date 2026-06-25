@@ -4,10 +4,12 @@
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
+<url><loc>/reference/PEcAn.RothC-package.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/met2model.RothC.html</loc></url>
 <url><loc>/reference/model2netcdf.RothC.html</loc></url>
 <url><loc>/reference/read_restart.RothC.html</loc></url>
+<url><loc>/reference/read_soil_physics.html</loc></url>
 <url><loc>/reference/write.config.RothC.html</loc></url>
 <url><loc>/reference/write_restart.RothC.html</loc></url>
 </urlset>
