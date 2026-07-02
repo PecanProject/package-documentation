@@ -45,18 +45,59 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="pecanbenchmark">PEcAn.benchmark<a class="anchor" aria-label="anchor" href="#pecanbenchmark"></a>
-</h1></div>
+  <main id="main" class="col-md-9"><div class="section level2">
+<h2 id="quickstart-run_benchmark">Quickstart: run_benchmark()<a class="anchor" aria-label="anchor" href="#quickstart-run_benchmark"></a>
+</h2>
+<p><code><a href="reference/run_benchmark.html">run_benchmark()</a></code> is a simple entry point that takes model output and observations dataframes, aligns them by time, computes metrics, and returns a plot.</p>
+<div class="section level3">
+<h3 id="input-format">Input format<a class="anchor" aria-label="anchor" href="#input-format"></a>
+</h3>
+<p>Both input dataframes must have the following two columns: - <code>time</code> — timestamp (<code>POSIXct</code>, e.g. <code>2020-01-01 00:00:00</code>) - <code>value</code> — numeric variable value</p>
+</div>
+<div class="section level3">
+<h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h3>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pecanproject.github.io" class="external-link">PEcAn.benchmark</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Assuming model_df and obs_df are loaded data.frames</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_benchmark.html">run_benchmark</a></span><span class="op">(</span></span>
+<span>  model_df <span class="op">=</span> <span class="va">model_df</span>,</span>
+<span>  obs_df   <span class="op">=</span> <span class="va">obs_df</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View metrics</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">metrics</span><span class="op">)</span></span>
+<span><span class="co">#   metric     value</span></span>
+<span><span class="co"># 1   RMSE 0.1322876</span></span>
+<span><span class="co"># 2    MAE 0.1250000</span></span>
+<span></span>
+<span><span class="co"># View plot</span></span>
+<span><span class="va">res</span><span class="op">$</span><span class="va">plot</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a>
+</h3>
+<ul>
+<li>
+<code>model_df</code> — data.frame containing model output</li>
+<li>
+<code>obs_df</code> — data.frame containing observations</li>
+<li>
+<code>metrics</code> — vector of metrics to compute: <code>"RMSE"</code>, <code>"MAE"</code> (default: both)</li>
+<li>
+<code>tolerance_secs</code> — max time difference for matching (default: 3600 seconds) # PEcAn.benchmark</li>
+</ul>
 <!-- badges: start -->
-
 <!-- badges: end -->
 <p>PEcAn Functions Used for Benchmarking</p>
+</div>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install the development version of <code>PEcAn.benchmark</code> from r-universe like so:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable repository from pecanproject</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  pecanproject <span class="op">=</span> <span class="st">'https://pecanproject.r-universe.dev'</span>,</span>
@@ -64,7 +105,7 @@
 <span><span class="co"># Download and install PEcAn.benchmark in R</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'PEcAn.benchmark'</span><span class="op">)</span></span></code></pre></div>
 <p>Or you can install directly from GitHub with the remotes package like so:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'pecanproject/pecan'</span>,  subdir <span class="op">=</span> <span class="st">"modules/benchmark"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -72,11 +113,11 @@
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pecanproject.github.io" class="external-link">PEcAn.benchmark</a></span><span class="op">)</span></span>
 <span><span class="co">## basic example code</span></span></code></pre></div>
 </div>
-</div>
+
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
