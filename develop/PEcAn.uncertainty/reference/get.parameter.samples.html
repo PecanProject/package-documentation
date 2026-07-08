@@ -105,15 +105,15 @@ independent samples are drawn from <code>post.distns</code>.</p></dd>
 
 
 </dl><p><strong>File-based side effects (saved to <code>settings$outdir</code>):</strong></p><dl><dt><code>samples.Rdata</code></dt>
-<dd><p>When <code>outdir</code> is non-<code>NULL</code> (the default), bundles 5 objects:</p><ul><li><p><code>trait.samples</code> — Named list (PFT -&gt; trait -&gt; numeric vector of
+<dd><p>When <code>outdir</code> is non-<code>NULL</code> (the default), bundles 5 objects:</p><ul><li><p><code>trait.samples</code> - Named list (PFT -&gt; trait -&gt; numeric vector of
 length <code>iterations</code>). Raw MCMC or prior-sampled values.</p></li>
-<li><p><code>sa.samples</code> — Named list (PFT -&gt; matrix[n_quantiles x
+<li><p><code>sa.samples</code> - Named list (PFT -&gt; matrix[n_quantiles x
 n_traits]). Quantile-based samples for sensitivity analysis.</p></li>
-<li><p><code>ensemble.samples</code> — Named list (PFT -&gt; data frame[ensemble.size
+<li><p><code>ensemble.samples</code> - Named list (PFT -&gt; data frame[ensemble.size
 x n_traits]). Subsampled parameter sets for ensemble runs.</p></li>
-<li><p><code>env.samples</code> — Currently empty list (reserved for
+<li><p><code>env.samples</code> - Currently empty list (reserved for
 environmental samples).</p></li>
-<li><p><code>runs.samples</code> — Currently empty list (reserved for run
+<li><p><code>runs.samples</code> - Currently empty list (reserved for run
 metadata).</p></li>
 </ul></dd>
 

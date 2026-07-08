@@ -47,7 +47,12 @@ are shared across sites to ensure consistent parameter sampling.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate_joint_ensemble_design</span><span class="op">(</span><span class="va">settings</span>, <span class="va">ensemble_size</span>, sobol <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate_joint_ensemble_design</span><span class="op">(</span></span>
+<span>  <span class="va">settings</span>,</span>
+<span>  <span class="va">ensemble_size</span>,</span>
+<span>  samples <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sobol <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -73,6 +78,13 @@ want to recycle existing ensemble_samples when splitting larger runs
 into smaller jobs while keeping the same parameters.</p></dd>
 
 
+<dt id="arg-samples">samples<a class="anchor" aria-label="anchor" href="#arg-samples"></a></dt>
+<dd><p>Optional pre-computed parameter samples. When supplied, these
+are used directly instead of loading posteriors and sampling. When
+<code>NULL</code> (default), samples are generated in memory via
+<code>load_pft_posteriors</code> and <code>get_parameter_samples</code>.</p></dd>
+
+
 <dt id="arg-sobol">sobol<a class="anchor" aria-label="anchor" href="#arg-sobol"></a></dt>
 <dd><p>Logical. If TRUE, returns a <code><a href="https://rdrr.io/pkg/sensitivity/man/soboljansen.html" class="external-link">sensitivity::soboljansen</a></code>
 object for Sobol sensitivity analysis.</p></dd>
@@ -81,7 +93,7 @@ object for Sobol sensitivity analysis.</p></dd>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A list containing ensemble samples and indices.
-  If <code>sobol = FALSE</code>, returns <code>list(X = design_matrix)</code>.
+  If <code>sobol = FALSE</code>, returns <code>list(X = design_matrix, samples = samples)</code>.
   If <code>sobol = TRUE</code>, returns a <code><a href="https://rdrr.io/pkg/sensitivity/man/soboljansen.html" class="external-link">sensitivity::soboljansen()</a></code>
   result object with the design matrix in <code>$X</code> plus additional
   components for Sobol index calculations.</p>

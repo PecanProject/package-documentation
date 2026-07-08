@@ -44,7 +44,8 @@
 <span>  <span class="va">input_design</span>,</span>
 <span>  write <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  posterior.files <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">settings</span><span class="op">$</span><span class="va">pfts</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  overwrite <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  overwrite <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  samples <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -78,6 +79,14 @@ ensemble and sensitivity analysis (e.g. <code>post.distns.Rdata</code>, or
 
 <dt id="arg-overwrite">overwrite<a class="anchor" aria-label="anchor" href="#arg-overwrite"></a></dt>
 <dd><p>logical: Replace output files that already exist?</p></dd>
+
+
+<dt id="arg-samples">samples<a class="anchor" aria-label="anchor" href="#arg-samples"></a></dt>
+<dd><p>Optional pre-computed parameter samples (a list with
+<code>trait.samples</code>, <code>sa.samples</code>, <code>ensemble.samples</code>). When supplied, these
+are used directly and <code>samples.Rdata</code> is not read from disk. When <code>NULL</code>
+(default), the function falls back to loading <code>samples.Rdata</code> from
+<code>settings$outdir</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
