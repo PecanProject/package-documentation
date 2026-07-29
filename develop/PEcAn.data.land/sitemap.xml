@@ -18,8 +18,9 @@
 <url><loc>/reference/apply_water_balance.html</loc></url>
 <url><loc>/reference/bism_kc_by_crop.html</loc></url>
 <url><loc>/reference/buildJAGSdata_InventoryRings.html</loc></url>
-<url><loc>/reference/ca_compost_amendment.html</loc></url>
 <url><loc>/reference/ca_n_application_rate.html</loc></url>
+<url><loc>/reference/ca_organic_amendment_app_rate.html</loc></url>
+<url><loc>/reference/ca_organic_amendment_properties.html</loc></url>
 <url><loc>/reference/calc_water_balance.html</loc></url>
 <url><loc>/reference/calc_water_balance_rice.html</loc></url>
 <url><loc>/reference/clip_and_save_raster_file.html</loc></url>
@@ -62,8 +63,8 @@
 <url><loc>/reference/iscn_soc.html</loc></url>
 <url><loc>/reference/landiq_crop_mapping_codes.html</loc></url>
 <url><loc>/reference/load_veg.html</loc></url>
-<url><loc>/reference/look_up_ca_compost_amendment.html</loc></url>
 <url><loc>/reference/look_up_ca_n_rate.html</loc></url>
+<url><loc>/reference/look_up_ca_organic_amendment.html</loc></url>
 <url><loc>/reference/look_up_fertilizer_components.html</loc></url>
 <url><loc>/reference/matchInventoryRings.html</loc></url>
 <url><loc>/reference/match_pft.html</loc></url>

@@ -48,16 +48,18 @@
 <li>
 <code>bism_kc_by_crop</code> dataset containing BISm crop coefficient schedules and stage timing references for use in ET estimation, including columns that map to LandIQ class and subclass.</li>
 <li>
-<code>ca_n_application_rate</code> dataset with recommended N application rates (g N/m2) for 33 California crops from CDFA-FREP and UC ANR sources.</li>
+<code>ca_n_application_rate</code> dataset with recommended N application rates (g N/m2) for 40 California crops from CDFA-FREP, UC ANR, Rosenstock 2013, Brown 2020 NBMP (Almonds age stages) and Lazicki 2016 (Potato) sources.</li>
 <li>
-<code>ca_compost_amendment</code> dataset with C:N ratios, carbon, nitrogen, and PAN (g/m2) for 32 organic amendment materials.</li>
+<code>ca_organic_amendment_properties</code> dataset with C:N ratios, nitrogen, and PAN for 32 organic amendment materials, plus a <code>material_class</code> column mapping each material to the CalRecycle taxonomy (14 CCR section 17852).</li>
+<li>
+<code>ca_organic_amendment_app_rate</code> dataset with row-crop and orchard application rate envelopes (64 rows = 32 materials x 2 crop structures) that joins to <code>ca_organic_amendment_properties</code> on <code>material</code>.</li>
 </ul></li>
 <li>
 <p>Functions</p>
 <ul><li>
 <code><a href="../reference/look_up_ca_n_rate.html">look_up_ca_n_rate()</a></code> for looking up crop-specific N application rates by name (exact match first, partial match suggestions on miss).</li>
 <li>
-<code><a href="../reference/look_up_ca_compost_amendment.html">look_up_ca_compost_amendment()</a></code> for looking up organic amendment properties by material name.</li>
+<code><a href="../reference/look_up_ca_organic_amendment.html">look_up_ca_organic_amendment()</a></code> for looking up organic amendment properties by material name.</li>
 <li>
 <code><a href="../reference/to_co2e.html">to_co2e()</a></code> for converting SOC change, CH4, and N2O to CO2-equivalent emissions using IPCC Global Warming Potential values.</li>
 </ul></li>
