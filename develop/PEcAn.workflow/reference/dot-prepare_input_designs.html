@@ -63,17 +63,24 @@ auto-generates designs when needed.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A list with <code>ensemble</code> and <code>sensitivity</code> entries (each a
   data.frame or NULL) and a <code>samples</code> entry holding the parameter bundle
-  when one was sampled (NULL otherwise, in which case callers fall back to disk).</p>
+  used for the run. When the run has an ensemble or sensitivity analysis the
+  bundle is always resolved (reused from a supplied design, or sampled here)
+  and written to <code>samples.Rdata</code> for the downstream analysis steps.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Input normalization rules:</p><ul><li><p>If <code>input_design</code> is already a list with <code>ensemble</code>/<code>sensitivity</code>
-        keys, return as-is</p></li>
-<li><p>If <code>input_design</code> is a single data.frame, interpret as ensemble design</p></li>
-<li><p>If NULL and <code>settings$ensemble</code> exists, generate via
-        <code>generate_joint_ensemble_design</code></p></li>
-<li><p>If NULL and <code>settings$sensitivity.analysis</code> exists, generate via
-        <code>generate_OAT_SA_design</code></p></li>
+    <p>Input handling rules:</p><ul><li><p>If <code>input_design</code> is already a list with
+        <code>ensemble</code>/<code>sensitivity</code> keys (e.g. threaded from a
+        MultiSettings parent), return as-is.</p></li>
+<li><p>If <code>input_design</code> is the <code>list(X, samples)</code> from
+        <code>generate_joint_ensemble_design()</code>, use <code>X</code> as the ensemble
+        design and <code>samples</code> as the bundle (no resampling).</p></li>
+<li><p>If <code>input_design</code> is a bare data.frame (a design without its
+        samples), raise an error: the design's <code>param</code> indices only match
+        the samples they were drawn with.</p></li>
+<li><p>If <code>NULL</code>, sample the bundle here and generate designs via
+        <code>generate_joint_ensemble_design</code> and/or
+        <code>generate_OAT_SA_design</code> as the settings require.</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
