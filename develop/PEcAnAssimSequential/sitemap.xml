@@ -50,8 +50,10 @@
 <url><loc>/reference/debias.residual.calc.html</loc></url>
 <url><loc>/reference/debias.train.accuracy.html</loc></url>
 <url><loc>/reference/downscale_main.html</loc></url>
+<url><loc>/reference/downscale_metrics.html</loc></url>
 <url><loc>/reference/downscale_qsub_main.html</loc></url>
 <url><loc>/reference/dwtmnorm.html</loc></url>
+<url><loc>/reference/ensemble_downscale.html</loc></url>
 <url><loc>/reference/get_ensemble_weights.html</loc></url>
 <url><loc>/reference/hop_test.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
@@ -62,7 +64,7 @@
 <url><loc>/reference/matrix_network.html</loc></url>
 <url><loc>/reference/metSplit.html</loc></url>
 <url><loc>/reference/obs_timestep2timepoint.html</loc></url>
-<url><loc>/reference/outlier.detector.boxplot.html</loc></url>
+<url><loc>/reference/outlier_detector_boxplot.html</loc></url>
 <url><loc>/reference/parallel_prediction.html</loc></url>
 <url><loc>/reference/parallel_train.html</loc></url>
 <url><loc>/reference/pecan_settings_2_pts.html</loc></url>
@@ -87,6 +89,7 @@
 <url><loc>/reference/simple.local.html</loc></url>
 <url><loc>/reference/stack_covariates_2_df.html</loc></url>
 <url><loc>/reference/stack_covariates_2_geotiff.html</loc></url>
+<url><loc>/reference/subset_ensemble.html</loc></url>
 <url><loc>/reference/tobit.model.html</loc></url>
 <url><loc>/reference/tobit2space.model.html</loc></url>
 <url><loc>/reference/tobit_model_censored.html</loc></url>
