@@ -80,10 +80,10 @@ quasi-random sampling, while SA designs hold non-parameter inputs constant
 <dt id="arg-input-design">input_design<a class="anchor" aria-label="anchor" href="#arg-input-design"></a></dt>
 <dd><p>Optional. The parameter/input design for the runs,
 normally the full result of <code>generate_joint_ensemble_design()</code>: a list
-with <code>X</code> (a data.frame whose <code>param</code> column selects rows of
+with <code>design_matrix</code> (a data.frame whose <code>param</code> column selects rows of
 <code>trait.samples</code>/<code>ensemble.samples</code>, plus optional columns named
 for <code>settings$run$inputs</code> tags such as <code>met</code> or <code>soil</code>) and
-<code>samples</code> (the parameter bundle those indices point into). Can be:</p><ul><li><p>The <code>list(X, samples)</code> returned by
+<code>samples</code> (the parameter bundle those indices point into). Can be:</p><ul><li><p>The <code>list(design_matrix, samples)</code> returned by
         <code>generate_joint_ensemble_design()</code></p></li>
 <li><p><code>NULL</code> to generate the design and samples internally from
         <code>settings</code></p></li>

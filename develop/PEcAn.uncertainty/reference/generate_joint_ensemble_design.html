@@ -60,15 +60,12 @@ are shared across sites to ensure consistent parameter sampling.</p>
 
 
 <dl><dt id="arg-settings">settings<a class="anchor" aria-label="anchor" href="#arg-settings"></a></dt>
-<dd><p>PEcAn settings object. This function directly uses:</p><ul><li><p><code>settings$outdir</code> - Output directory path for samples.Rdata</p></li>
-<li><p><code>settings$pfts</code> - List of PFTs (extracts <code>posterior.files</code>)</p></li>
+<dd><p>PEcAn settings object. This function directly uses:</p><ul><li><p><code>settings$pfts</code> - List of PFTs (extracts <code>posterior.files</code>)</p></li>
 <li><p><code>settings$ensemble$samplingspace</code> - Input sampling configuration</p></li>
 <li><p><code>settings$run$inputs</code> - Input paths for each input type</p></li>
-</ul><p>When samples.Rdata doesn't exist, settings is passed to
-<code><a href="get.parameter.samples.html">get.parameter.samples</a></code> which additionally requires:</p><ul><li><p><code>settings$ensemble</code> - Ensemble configuration</p></li>
-<li><p><code>settings$database$bety</code> - Database connection (optional)</p></li>
-<li><p><code>settings$host$name</code> - Host name for dbfile.check (optional)</p></li>
-</ul></dd>
+</ul><p>When <code>samples</code> is not supplied, <code>load_pft_posteriors</code> additionally
+uses <code>settings$database$bety</code> and <code>settings$host$name</code> for the
+optional posterior lookup.</p></dd>
 
 
 <dt id="arg-ensemble-size">ensemble_size<a class="anchor" aria-label="anchor" href="#arg-ensemble-size"></a></dt>
@@ -92,17 +89,22 @@ object for Sobol sensitivity analysis.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list containing ensemble samples and indices.
-  If <code>sobol = FALSE</code>, returns <code>list(X = design_matrix, samples = samples)</code>.
-  If <code>sobol = TRUE</code>, returns a <code><a href="https://rdrr.io/pkg/sensitivity/man/soboljansen.html" class="external-link">sensitivity::soboljansen()</a></code>
-  result object with the design matrix in <code>$X</code> plus additional
-  components for Sobol index calculations.</p>
+    <p>If <code>sobol = FALSE</code>, a list with <code>design_matrix</code> (the design,
+  one row per run, whose <code>param</code> column indexes the samples), <code>X</code>
+  (the same matrix under its older name, kept so existing callers keep
+  working), and <code>samples</code> (the parameter bundle those indices point
+  into).
+  If <code>sobol = TRUE</code>, a <code><a href="https://rdrr.io/pkg/sensitivity/man/soboljansen.html" class="external-link">sensitivity::soboljansen()</a></code> result object
+  carrying the same <code>design_matrix</code> and <code>samples</code> entries, with
+  <code>$X</code> set by <span class="pkg">sensitivity</span> itself, plus the extra components its
+  index calculations need.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Note on internal dependencies</p>
-<p>If samples.Rdata doesn't exist we call get.parameter.samples(), which loads
-parameter distributions.</p>
+    <p>Parameter samples are drawn in memory via <code><a href="load_pft_posteriors.html">load_pft_posteriors</a></code>
+and <code><a href="get_parameter_samples.html">get_parameter_samples</a></code>, or reused when a <code>samples</code>
+bundle is supplied. Nothing is read from or written to <code>samples.Rdata</code>.</p>
+<p><code>load_pft_posteriors</code> finds and loads the parameter distributions.</p>
 <p>In practice it:
 - uses pft$posterior.files directly when it is defined (an Rdata file with
   post.distns or prior.distns),

@@ -55,10 +55,7 @@ inputs vary together.</p>
 
 
 <dl><dt id="arg-settings">settings<a class="anchor" aria-label="anchor" href="#arg-settings"></a></dt>
-<dd><p>PEcAn settings object. Uses <code>settings$pfts</code>,
-<code>settings$sensitivity.analysis$quantiles</code> (the SA quantiles, when
-sampling here), and <code>settings$ensemble$samplingspace</code> (the input types
-that form the design columns).</p></dd>
+<dd><p>PEcAn settings object. See details for required elements.</p></dd>
 
 
 <dt id="arg-samples">samples<a class="anchor" aria-label="anchor" href="#arg-samples"></a></dt>
@@ -70,24 +67,60 @@ sampled in memory.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list with <code>X</code>, a data.frame with one row per SA run and one
-  column per input type (the <code>param</code> column holds sequential run indices,
-  every other column is held at 1), and <code>samples</code>, the parameter bundle
-  used.</p>
+    <p>A list with <code>design_matrix</code>, a data.frame with one row per SA run
+  and one column per input type (the <code>param</code> column holds sequential run
+  indices, every other column is held at 1), <code>X</code>, the same matrix under
+  its older name, and <code>samples</code>, the parameter bundle used.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Parameter samples are drawn in memory via <code><a href="load_pft_posteriors.html">load_pft_posteriors</a></code>
+    <p>## Settings requirements</p>
+<p>This function directly uses:</p><ul><li><p><code>settings$pfts</code> - List of PFTs (extracts <code>posterior.files</code>)</p></li>
+<li><p><code>settings$ensemble$samplingspace</code> - Input types to include in design</p></li>
+<li><p><code>settings$sensitivity.analysis$quantiles</code> - SA quantiles, when
+    sampling here rather than reusing a supplied bundle</p></li>
+</ul><p>When <code>samples = NULL</code>, <code><a href="load_pft_posteriors.html">load_pft_posteriors</a></code> additionally
+uses <code>settings$database$bety</code> and <code>settings$host$name</code> for the
+optional posterior lookup.</p>
+<p>## OAT design logic
+For sensitivity analysis, we must isolate the effect of each
+parameter by holding all other inputs constant. The param column contains
+sequential indices (1, 2, 3, ...) matching the SA run order in
+<code>write.sa.configs</code>. All other columns (met, ic, soil, etc.) are set to 1,
+meaning the first input file is always used.</p>
+<p>## Where the samples come from
+Parameter samples are drawn in memory via <code><a href="load_pft_posteriors.html">load_pft_posteriors</a></code>
 and <code><a href="get_parameter_samples.html">get_parameter_samples</a></code> (mirroring
 <code><a href="generate_joint_ensemble_design.html">generate_joint_ensemble_design</a></code>), or reused when a <code>samples</code>
-bundle is supplied. The design is built from the quantile-based
-<code>sa.samples</code> within that bundle.</p>
+bundle is supplied. Nothing is read from or written to <code>samples.Rdata</code>.
+The design is built from the quantile-based <code>sa.samples</code> in that bundle.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Akash B V, Om Kapale</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Generate the SA design, sampling parameters in memory</span></span></span>
+<span class="r-in"><span><span class="va">sa_design</span> <span class="op">&lt;-</span> <span class="fu">generate_OAT_SA_design</span><span class="op">(</span><span class="va">settings</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># View the design matrix</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sa_design</span><span class="op">$</span><span class="va">design_matrix</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">#   param met ic soil</span></span></span>
+<span class="r-in"><span><span class="co"># 1     1   1  1    1   # Median run</span></span></span>
+<span class="r-in"><span><span class="co"># 2     2   1  1    1   # trait1 @ q=2.3%</span></span></span>
+<span class="r-in"><span><span class="co"># 3     3   1  1    1   # trait1 @ q=15.9%</span></span></span>
+<span class="r-in"><span><span class="co"># 4     4   1  1    1   # trait1 @ q=84.1%</span></span></span>
+<span class="r-in"><span><span class="co"># ...</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Reuse an established set of samples instead of drawing new ones</span></span></span>
+<span class="r-in"><span><span class="va">sa_design</span> <span class="op">&lt;-</span> <span class="fu">generate_OAT_SA_design</span><span class="op">(</span><span class="va">settings</span>, samples <span class="op">=</span> <span class="va">samples</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
