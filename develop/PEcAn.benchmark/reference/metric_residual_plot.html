@@ -41,6 +41,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">metric_residual_plot</span><span class="op">(</span></span>
 <span>  <span class="va">metric_dat</span>,</span>
 <span>  <span class="va">var</span>,</span>
+<span>  unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  filename <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  draw.plot <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -56,6 +57,10 @@
 
 <dt id="arg-var">var<a class="anchor" aria-label="anchor" href="#arg-var"></a></dt>
 <dd><p>variable name, used as plot title</p></dd>
+
+
+<dt id="arg-unit">unit<a class="anchor" aria-label="anchor" href="#arg-unit"></a></dt>
+<dd><p>measurement unit for the variable, added to the y-axis label; NULL to omit</p></dd>
 
 
 <dt id="arg-filename">filename<a class="anchor" aria-label="anchor" href="#arg-filename"></a></dt>

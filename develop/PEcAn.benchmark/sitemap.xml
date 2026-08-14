@@ -23,6 +23,7 @@
 <url><loc>/reference/create_BRR.html</loc></url>
 <url><loc>/reference/define_benchmark.html</loc></url>
 <url><loc>/reference/format_wide2long.html</loc></url>
+<url><loc>/reference/generate_validation_report.html</loc></url>
 <url><loc>/reference/get_species_list_standard.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/load_and_map_data.html</loc></url>
@@ -50,7 +51,6 @@
 <url><loc>/reference/metric_scatter_plot.html</loc></url>
 <url><loc>/reference/metric_timeseries_plot.html</loc></url>
 <url><loc>/reference/pecan_metric_registry.html</loc></url>
-<url><loc>/reference/plot_time_series.html</loc></url>
 <url><loc>/reference/read_settings_BRR.html</loc></url>
 <url><loc>/reference/register_metric.html</loc></url>
 <url><loc>/reference/run_benchmark.html</loc></url>
