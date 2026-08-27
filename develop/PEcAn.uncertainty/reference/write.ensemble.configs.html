@@ -54,7 +54,9 @@ a name to distinguish the output files, and the directory to place the files.</p
 <span>  clean <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  write.to.db <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  restart <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  rename <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  rename <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  run_descriptions <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  ensemble.id <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -107,6 +109,19 @@ See Details.</p></dd>
 
 <dt id="arg-rename">rename<a class="anchor" aria-label="anchor" href="#arg-rename"></a></dt>
 <dd><p>Decide if we want to rename previous output files, for example convert from sipnet.out to sipnet.2020-07-16.out.</p></dd>
+
+
+<dt id="arg-run-descriptions">run_descriptions<a class="anchor" aria-label="anchor" href="#arg-run-descriptions"></a></dt>
+<dd><p>optional data.frame, one row per design row, with
+<code>id</code>, <code>paramlist</code> and the <code>pft_name</code>, <code>trait</code>,
+<code>quantile</code> and <code>type</code> the run manifest carries. Lets a caller that
+already knows what each run is describe them, instead of these being
+generated as ensemble members.</p></dd>
+
+
+<dt id="arg-ensemble-id">ensemble.id<a class="anchor" aria-label="anchor" href="#arg-ensemble-id"></a></dt>
+<dd><p>optional id for this set of runs, used instead of the one
+in <code>settings$ensemble$id</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

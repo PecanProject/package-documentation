@@ -73,9 +73,11 @@ auto-generates designs when needed.</p>
         <code>ensemble</code>/<code>sensitivity</code> keys (e.g. threaded from a
         MultiSettings parent), return as-is.</p></li>
 <li><p>If <code>input_design</code> is the <code>list(design_matrix, samples)</code>
-        from <code>generate_joint_ensemble_design()</code>, use the design matrix
-        as the ensemble design and <code>samples</code> as the bundle (no
-        resampling). <code>X</code> is accepted as the older name for it.</p></li>
+        returned by a design generator, use that design and <code>samples</code>
+        as the bundle (no resampling). <code>X</code> is accepted as the older
+        name for the design. A design carrying <code>sa_pft</code>,
+        <code>sa_trait</code> and <code>sa_quantile</code> describes sensitivity
+        analysis runs; anything else is an ensemble design.</p></li>
 <li><p>If <code>input_design</code> is a bare data.frame (a design without its
         samples), raise an error: the design's <code>param</code> indices only match
         the samples they were drawn with.</p></li>

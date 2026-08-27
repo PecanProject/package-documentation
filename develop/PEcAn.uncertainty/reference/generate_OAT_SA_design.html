@@ -67,10 +67,13 @@ sampled in memory.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list with <code>design_matrix</code>, a data.frame with one row per SA run
-  and one column per input type (the <code>param</code> column holds sequential run
-  indices, every other column is held at 1), <code>X</code>, the same matrix under
-  its older name, and <code>samples</code>, the parameter bundle used.</p>
+    <p>A list with <code>design_matrix</code>, a data.frame with one row per SA run:
+  the <code>param</code> column holds sequential run indices, every input column is
+  held at 1, and <code>sa_pft</code>, <code>sa_trait</code> and <code>sa_quantile</code> say what
+  each run is. The first row is the median run, with those three <code>NA</code>,
+  <code>NA</code> and <code>"50"</code>; every row after moves one trait of one PFT to one
+  of its quantiles. Also <code>X</code>, the same matrix under its older name, and
+  <code>samples</code>, the parameter bundle used.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -85,9 +88,11 @@ optional posterior lookup.</p>
 <p>## OAT design logic
 For sensitivity analysis, we must isolate the effect of each
 parameter by holding all other inputs constant. The param column contains
-sequential indices (1, 2, 3, ...) matching the SA run order in
-<code>write.sa.configs</code>. All other columns (met, ic, soil, etc.) are set to 1,
-meaning the first input file is always used.</p>
+sequential indices (1, 2, 3, ...), and <code>sa_pft</code>, <code>sa_trait</code> and
+<code>sa_quantile</code> say what each run is: the first holds every parameter at
+its median, and each one after moves a single trait to one of its quantiles.
+All other columns (met, ic, soil, etc.) are set to 1, meaning the first input
+file is always used.</p>
 <p>## Where the samples come from
 Parameter samples are drawn in memory via <code><a href="load_pft_posteriors.html">load_pft_posteriors</a></code>
 and <code><a href="get_parameter_samples.html">get_parameter_samples</a></code> (mirroring

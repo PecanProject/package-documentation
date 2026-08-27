@@ -40,6 +40,9 @@
 <url><loc>/reference/runModule.run.ensemble.analysis.html</loc></url>
 <url><loc>/reference/runModule.run.sensitivity.analysis.html</loc></url>
 <url><loc>/reference/sa.splinefun.html</loc></url>
+<url><loc>/reference/sa_run_descriptions.html</loc></url>
+<url><loc>/reference/sa_run_id_table.html</loc></url>
+<url><loc>/reference/sa_run_samples.html</loc></url>
 <url><loc>/reference/sd.var.html</loc></url>
 <url><loc>/reference/sensitivity.analysis.html</loc></url>
 <url><loc>/reference/sensitivity.filename.html</loc></url>
@@ -47,6 +50,5 @@
 <url><loc>/reference/spline.truncate.html</loc></url>
 <url><loc>/reference/variance.stats.html</loc></url>
 <url><loc>/reference/write.ensemble.configs.html</loc></url>
-<url><loc>/reference/write.sa.configs.html</loc></url>
 </urlset>
 
