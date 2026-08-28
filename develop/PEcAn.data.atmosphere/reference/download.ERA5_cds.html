@@ -138,6 +138,11 @@ The function saves one NetCDF file per year in the specified output directory.</
     <p>This function requires a valid CDS API key and the <code>ecmwfr</code> package for accessing the Copernicus Climate Data Store.
 To get a Copernicus CDS API key, register at <a href="https://cds.climate.copernicus.eu/profile" class="external-link">https://cds.climate.copernicus.eu/profile</a>.
 You must provide both <code>user</code> (UID) and <code>key</code> parameters from your CDS profile.</p>
+<p>Credentials are stored by <code><a href="https://rdrr.io/pkg/ecmwfr/man/wf_set_key.html" class="external-link">ecmwfr::wf_set_key</a></code>, which uses the <code>keyring</code> package.
+On a headless machine (cluster node, server, container) there is no OS keyring available and
+the default backend will prompt for a keyring password. To avoid this, set
+<code>Sys.setenv(R_KEYRING_BACKEND = "env")</code> before calling this function, which keeps the
+key in an environment variable for the session instead.</p>
 <p>You can check the "CC-BY" license under the <a href="https://cds.climate.copernicus.eu/profile?tab=licences" class="external-link">'licences' tab of your profile page</a>.</p>
     </div>
     <div class="section level2">
