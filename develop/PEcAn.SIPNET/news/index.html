@@ -33,7 +33,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecansipnet-11009000">PEcAn.SIPNET 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecansipnet-11009000"></a></h2>
-<ul><li>
+<ul><li>Improvements to the job.sh written by <code>write_segmented_configs</code>:
+<ul><li>Now places README.txt, segments.csv, and the full log files from each segment, into the outdir (as was already done for one-segment runs).</li>
+<li>Now respects <code>settings$model$delete.raw</code> by deleting sipnet.out from segment dirs as well as the from the job outdir</li>
+<li>No longer calls model2netcdf.SIPNET() inside each segment dir (it was redundant with the whole-job netcdf output).</li>
+<li>Fixed incorrect run paths in the settings$host block passed to single segments</li>
+</ul></li>
+<li>
 <code>model2netcdf.SIPNET</code> takes <code>LAI</code> from sipnet.out if present (which requires Sipnet &gt; v2.2). If it is not present, LAI is calculated as <code>plantLeafC / leafCSpWt</code> as previously.</li>
 <li>
 <code>split_inputs.SIPNET</code> now avoids internal time format conversions, giving a substantial speedup and reduced memory use when processing multi-year files.</li>
