@@ -22,6 +22,7 @@
 <url><loc>/reference/compute_metrics.html</loc></url>
 <url><loc>/reference/create_BRR.html</loc></url>
 <url><loc>/reference/define_benchmark.html</loc></url>
+<url><loc>/reference/efi_long_to_array.html</loc></url>
 <url><loc>/reference/format_wide2long.html</loc></url>
 <url><loc>/reference/generate_validation_report.html</loc></url>
 <url><loc>/reference/get_species_list_standard.html</loc></url>
@@ -35,6 +36,8 @@
 <url><loc>/reference/match_timestep.html</loc></url>
 <url><loc>/reference/mean_over_larger_timestep.html</loc></url>
 <url><loc>/reference/metric_AME.html</loc></url>
+<url><loc>/reference/metric_Bias.html</loc></url>
+<url><loc>/reference/metric_CRPS.html</loc></url>
 <url><loc>/reference/metric_Coverage.html</loc></url>
 <url><loc>/reference/metric_Frechet.html</loc></url>
 <url><loc>/reference/metric_MAE.html</loc></url>
