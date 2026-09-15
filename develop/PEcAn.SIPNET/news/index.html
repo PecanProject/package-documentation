@@ -33,11 +33,16 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecansipnet-11009000">PEcAn.SIPNET 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecansipnet-11009000"></a></h2>
-<ul><li>New function <code>collect_restarts</code> copies <code>restart.out</code> files from an entire workflow run to a single directory, for e.g. initializing follow-up workflows (#4110).</li>
+<ul><li>More flexible handling of Sipnet “restart” files (checkpoints containing full model state at the end of the run):
+<ul><li>New setting <code>settings$model$copy.restart</code> is a logical runtime flag controlling whether to copy each run’s <code>restart.out</code> to the output directory at job completion or leave it in the run directory.</li>
+<li>New function <code>collect_restarts</code> works after the run and copies all the <code>restart.out</code>s from an entire workflow run into a single directory, for e.g. initializing follow-up workflows (#4110).</li>
+<li>The <code><a href="../reference/collect_restarts.html">collect_restarts()</a></code> function and the <code>copy.restart</code> flag work independently of each other; point <code><a href="../reference/collect_restarts.html">collect_restarts()</a></code> at whichever of <code>run/</code> or <code>out/</code> contains the restart files.</li>
+</ul></li>
 <li>Improvements to the job.sh written by <code>write_segmented_configs</code>:
 <ul><li>Now places README.txt, segments.csv, and the full log files from each segment, into the outdir (as was already done for one-segment runs).</li>
 <li>Now respects <code>settings$model$delete.raw</code> by deleting sipnet.out from segment dirs as well as the from the job outdir</li>
 <li>No longer calls model2netcdf.SIPNET() inside each segment dir (it was redundant with the whole-job netcdf output).</li>
+<li>Runs host setup and teardown steps once per job instead of once per segment. This reduces duplicate computation and allows using these steps for whole-rundir cleanups, e.g. <code>settings$model$postrun</code> = “rm -rf @RUNDIR@”. This may be especially useful to keep file counts reasonable in workflows with many crop changes (and hence many segment directories per site).</li>
 <li>Fixed incorrect run paths in the settings$host block passed to single segments</li>
 </ul></li>
 <li>
