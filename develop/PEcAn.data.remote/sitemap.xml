@@ -38,6 +38,9 @@
 <url><loc>/reference/get_subdatasets.html</loc></url>
 <url><loc>/reference/getnetrc.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/make_grouped_transition_matrices.html</loc></url>
+<url><loc>/reference/make_transition_matrix.html</loc></url>
+<url><loc>/reference/make_transitions.html</loc></url>
 <url><loc>/reference/merge_image_tiles.html</loc></url>
 <url><loc>/reference/read_remote_registry.html</loc></url>
 <url><loc>/reference/regrid.html</loc></url>
