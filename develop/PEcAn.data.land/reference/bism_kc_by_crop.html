@@ -112,6 +112,9 @@ by CIMIS (California Department of Water Resources, 2025).</p>
   <dt>landiq_subclass_name</dt>
 <dd><p>LandIQ subclass name matched by BISm crop number.</p></dd>
 
+  <dt>landiq_match</dt>
+<dd><p>`exact` for a direct BIS LandIQ key; `fallback` maps an unmatched LandIQ class/subclass to an existing BISm crop_name.</p></dd>
+
 
 </dl></div>
     <div class="section level2">
@@ -156,7 +159,7 @@ Irrigation scheduling. In <em>Microirrigation for Crop Production</em>. Elsevier
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">bism_kc_by_crop</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">bism_kc_by_crop</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 16</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   crop_number crop_name       landiq_class landiq_subclass landiq_subclass_name </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>        1.01 Alfalfa (cycle) P                          1 Alfalfa &amp; alfalfa mi…</span>
@@ -165,10 +168,10 @@ Irrigation scheduling. In <em>Microirrigation for Crop Production</em>. Elsevier
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>        1.04 Barley          G                          1 Barley               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>        1.05 Beans (pinto)   F                         10 Beans (dry)          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>        1.06 Beans (dry)     F                         10 Beans (dry)          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 11 more variables: percent_season_B &lt;dbl&gt;, percent_season_C &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   percent_season_D &lt;dbl&gt;, KcB &lt;dbl&gt;, KcC &lt;dbl&gt;, KcD &lt;dbl&gt;, KcE &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   planting_month &lt;dbl&gt;, planting_day &lt;dbl&gt;, harvest_month &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   harvest_day &lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 12 more variables: landiq_match &lt;chr&gt;, percent_season_B &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   percent_season_C &lt;dbl&gt;, percent_season_D &lt;dbl&gt;, KcB &lt;dbl&gt;, KcC &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   KcD &lt;dbl&gt;, KcE &lt;dbl&gt;, planting_month &lt;dbl&gt;, planting_day &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   harvest_month &lt;dbl&gt;, harvest_day &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

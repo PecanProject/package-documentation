@@ -7,7 +7,8 @@ selected by input:
 Date-based (percent-of-season) mode: If date is
 provided, Kc is interpolated linearly between BIS/BISm growth-stage anchors
 (B–C–D–E) using percent-of-season, with default planting and
-harvest dates taken from bism_kc_by_crop.
+harvest dates taken from bism_kc_by_crop. Optional planting /
+harvest override those defaults.
 Canopy-cover mode: If canopy_cover is provided, Kc is
 estimated from observed ground cover. For field and row crops, canopy cover
 is used to locate position within the B–C growth phase (linear increase from
@@ -24,7 +25,8 @@ selected by input:
 Date-based (percent-of-season) mode: If date is
 provided, Kc is interpolated linearly between BIS/BISm growth-stage anchors
 (B–C–D–E) using percent-of-season, with default planting and
-harvest dates taken from bism_kc_by_crop.
+harvest dates taken from bism_kc_by_crop. Optional planting /
+harvest override those defaults.
 Canopy-cover mode: If canopy_cover is provided, Kc is
 estimated from observed ground cover. For field and row crops, canopy cover
 is used to locate position within the B–C growth phase (linear increase from
@@ -74,7 +76,8 @@ Exactly one of date or canopy_cover must be supplied."></head><body>
 selected by input:</p><ol><li><p><strong>Date-based (percent-of-season) mode</strong>: If <code>date</code> is
 provided, Kc is interpolated linearly between BIS/BISm growth-stage anchors
 (B–C–D–E) using percent-of-season, with default planting and
-harvest dates taken from <code>bism_kc_by_crop</code>.</p></li>
+harvest dates taken from <code>bism_kc_by_crop</code>. Optional <code>planting</code> /
+<code>harvest</code> override those defaults.</p></li>
 <li><p><strong>Canopy-cover mode</strong>: If <code>canopy_cover</code> is provided, Kc is
 estimated from observed ground cover. For field and row crops, canopy cover
 is used to locate position within the B–C growth phase (linear increase from
@@ -86,7 +89,14 @@ value using the immaturity relationships of Snyder et al. (Snyder, Fig. 15).</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">eto_to_etc_bism</span><span class="op">(</span><span class="va">eto</span>, <span class="va">crop_name</span>, date <span class="op">=</span> <span class="cn">NULL</span>, canopy_cover <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">eto_to_etc_bism</span><span class="op">(</span></span>
+<span>  <span class="va">eto</span>,</span>
+<span>  <span class="va">crop_name</span>,</span>
+<span>  date <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  canopy_cover <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  planting <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  harvest <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -111,6 +121,11 @@ percent-of-season interpolation using BIS/BISm defaults.</p></dd>
 <dd><p>Optional numeric vector giving fractional ground cover
 (0-1), length 1 or <code>length(eto)</code>; triggers canopy-cover-based Kc
 estimation.</p></dd>
+
+
+<dt id="arg-planting-harvest">planting, harvest<a class="anchor" aria-label="anchor" href="#arg-planting-harvest"></a></dt>
+<dd><p>Optional <code>Date</code> values for percent-of-season mode;
+defaults come from <code>bism_kc_by_crop</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
