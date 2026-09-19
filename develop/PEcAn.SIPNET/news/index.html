@@ -33,7 +33,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecansipnet-11009000">PEcAn.SIPNET 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecansipnet-11009000"></a></h2>
-<ul><li>
+<ul><li>Added regression coverage for SIPNET event-JSON segmentation and segmented restart chaining (#4021).</li>
+<li>
 <code>write.config.SIPNET</code> now maps the <code>leafNResorptionFrac</code> trait to its v2 parameter, so PFT supplied values reach the param file instead of silently keeping the template default. Completes the nitrogen cycle trait mappings alongside the existing <code>leafOnReallocFrac</code>. <code>plantStorageNInit</code> is deliberately not trait mapped; it is an initial condition, set from the IC layer like the other Init parameters.</li>
 <li>For SIPNET v2, <code>write.config.SIPNET</code> now sets <code>plantStorageNInit</code> to the N needed for one carbon-limited leaf flush, computed from the initialized wood pool, instead of leaving the template value. With the nitrogen cycle on, a zero initial storage N suppressed the first leaf-on event entirely for vegetation initialized with standing wood (e.g. established orchards). Sipnet takes the smaller of its carbon and nitrogen limiters, so sizing N to the carbon-capped transfer removes the suppression without adding surplus N. A <code>plantStorageNInit</code> supplied through the <code>IC</code> argument still takes precedence, and zero-wood (annual) initializations still get 0.</li>
 <li>More flexible handling of Sipnet “restart” files (checkpoints containing full model state at the end of the run):
