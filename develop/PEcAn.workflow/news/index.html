@@ -35,7 +35,9 @@
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecanworkflow-11009000">PEcAn.workflow 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecanworkflow-11009000"></a></h2>
 <div class="section level3">
 <h3 id="changed-1-10-0-9000">Changed<a class="anchor" aria-label="anchor" href="#changed-1-10-0-9000"></a></h3>
-<ul><li>Sensitivity analysis and ensemble runs now generate separate input design matrices with appropriate dimensions, fixing dimension mismatch errors in multisite workflows. (#3708)</li>
+<ul><li>
+<code><a href="../reference/start_model_runs.html">start_model_runs()</a></code> gains argument <code>check_interval</code>, setting the time in seconds to wait between queries of job status on queued systems.</li>
+<li>Sensitivity analysis and ensemble runs now generate separate input design matrices with appropriate dimensions, fixing dimension mismatch errors in multisite workflows. (#3708)</li>
 <li>Generated runs are now stored in a <code>runs_manifest.csv</code> file in the output directory instead of modifying <code>samples.Rdata</code> (#3708)</li>
 <li>Removed <code>tests/Rcheck_reference.log</code>, which was used to ignore historic check messages that have now been fixed.</li>
 </ul></div>
