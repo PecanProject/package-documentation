@@ -93,9 +93,12 @@ add them all to your settings in one shot.</p>
 it's common to have different path conventions for met vs IC.</p>
 <p>The path template should be a string recognized by <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code>,
 with curly braces wrapping any expressions to be interpolated.
-<code>{n}</code> will be replaced with each value of 1:<code>n_reps</code>, <code>{id}</code> will be
-replaced with the siteid of each site, and any other variables need to be
-passed as named arguments in <code>...</code>.</p>
+Variables in these expressions are resolved in this order:</p><ol><li><p>Variables defined in each site's <code>run$site</code> settings block
+(notably meaning <code>{id}</code> will contain the site id that is always present as run$site$id)</p></li>
+<li><p>Variables passed as named arguments in <code>...</code> (these take the same value at every site)</p></li>
+<li><p><code>{n}</code> is treated specially as a replicate number and replaced with the sequence <code>1:n_reps</code></p></li>
+</ol><p>If the same name is defined in both run$site and <code>...</code>, uses the latter.
+All variables must have length either 1 or <code>n_reps</code>.</p>
 <p>If <code>inputs$&lt;input_type&gt;</code> does not exist, it will be created with a <code>path</code>
 element that matches the requested pattern. If it does exist, any existing
 <code>path</code> element will be overwritten.</p>
@@ -148,6 +151,35 @@ element that matches the requested pattern. If it does exist, any existing
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># using site-specific values in the path template:</span></span></span>
+<span class="r-in"><span><span class="va">m_bysite</span> <span class="op">&lt;-</span> <span class="fu"><a href="createMultiSiteSettings.html">createMultiSiteSettings</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  templateSettings <span class="op">=</span> <span class="va">s</span>,</span></span>
+<span class="r-in"><span>  siteIds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a1"</span>, <span class="st">"b2"</span><span class="op">)</span>, grid_cell <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"35N81W"</span>, <span class="st">"42N80W"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">m2_bysite</span> <span class="op">&lt;-</span> <span class="fu">setEnsemblePaths</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  settings <span class="op">=</span> <span class="va">m_bysite</span>,</span></span>
+<span class="r-in"><span>  n_reps <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>  input_type <span class="op">=</span> <span class="st">"met"</span>,</span></span>
+<span class="r-in"><span>  icdir <span class="op">=</span> <span class="st">"some/long/path"</span>,</span></span>
+<span class="r-in"><span>  GCM <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CESM2"</span>, <span class="st">"MIROC6"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  path_template <span class="op">=</span> <span class="st">"{icdir}/{grid_cell}/{GCM}.nc"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">m2_bysite</span><span class="op">$</span><span class="va">run</span><span class="op">$</span><span class="va">site.a1</span><span class="op">$</span><span class="va">inputs</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $met</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $met$path</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $met$path$path1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "some/long/path/35N81W/CESM2.nc"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $met$path$path2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "some/long/path/35N81W/MIROC6.nc"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $poolinitcond</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> list()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

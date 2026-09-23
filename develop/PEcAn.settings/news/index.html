@@ -33,7 +33,10 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.1.9000" id="pecansettings-1919000">PEcAn.settings 1.9.1.9000<a class="anchor" aria-label="anchor" href="#pecansettings-1919000"></a></h2>
-<ul><li>Breaking: <code>loadPath.SitePFT(path)</code> now takes only one argument, removing the previously required but ignored <code>settings</code> (@Thomas-Sedhom, #3834).</li>
+<ul><li>
+<code><a href="../reference/setEnsemblePaths.html">setEnsemblePaths()</a></code> now looks up variables in settings<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>u</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">run</annotation></semantics></math>site when interpolating path templates (#4100). This allows site-specific path components via e.g. <code>createMultiSiteSettings(s, data.frame(id = ..., grid_cell = ...)) |&gt;     setEnsemblePaths(..., path_template = "met/{grid_cell}/ERA5.{n}.clim")`</code>
+</li>
+<li>Breaking: <code>loadPath.SitePFT(path)</code> now takes only one argument, removing the previously required but ignored <code>settings</code> (@Thomas-Sedhom, #3834).</li>
 <li>
 <code><a href="../reference/check.model.settings.html">check.model.settings()</a></code> now skips lookup of the model binary path if no DB connection is provided (#3863).</li>
 <li>When no DB connection is provided to <code>check.database.settings</code>, it now skips with an INFO instead of a WARN. Rationale: now that the database is optional, a settings with no DB block is a valid settings.</li>
