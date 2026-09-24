@@ -39,7 +39,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="fixed-1-9-0-9000">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-9-0-9000"></a></h3>
-<ul><li><p><code><a href="../reference/soil2netcdf.html">soil2netcdf()</a></code> no longer drops depth information for soils with only one layer. (#3785)</p></li>
+<ul><li><p><code><a href="../reference/eto_to_etc_bism.html">eto_to_etc_bism()</a></code> correctly anchors planting and harvest dates across the new year for overwinter crops in date mode. (#4125)</p></li>
+<li><p><code><a href="../reference/soil2netcdf.html">soil2netcdf()</a></code> no longer drops depth information for soils with only one layer. (#3785)</p></li>
 <li><p><code><a href="../reference/soil_params.html">soil_params()</a></code> where bulk density is not specified by the user now look up <code>soil_bulk_density</code> from the soil type (as always intended) instead of always reporting 1350 kg/m3 because of a flow control typo. (#3776)</p></li>
 <li>
 <p>Datasets</p>
