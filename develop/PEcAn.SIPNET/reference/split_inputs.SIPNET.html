@@ -43,7 +43,9 @@
 <span>  <span class="va">stop.time</span>,</span>
 <span>  <span class="va">inputs</span>,</span>
 <span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  outpath <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  outpath <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  time_resolution <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"row"</span>, <span class="st">"day"</span><span class="op">)</span>,</span>
+<span>  allow_varying_timesteps <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -72,6 +74,16 @@ structure like:
 <dt id="arg-outpath">outpath<a class="anchor" aria-label="anchor" href="#arg-outpath"></a></dt>
 <dd><p>if specified, write output to a new directory. Default <code>NULL</code> writes back to the directory being read</p></dd>
 
+
+<dt id="arg-time-resolution">time_resolution<a class="anchor" aria-label="anchor" href="#arg-time-resolution"></a></dt>
+<dd><p>One of "row", "day". Should the split happen
+at the closest row to the end time or align with a time unit? See details</p></dd>
+
+
+<dt id="arg-allow-varying-timesteps">allow_varying_timesteps<a class="anchor" aria-label="anchor" href="#arg-allow-varying-timesteps"></a></dt>
+<dd><p>logical: Accept files where not all rows have
+the same duration? Disallowing can be substantially faster.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -83,6 +95,24 @@ paths (suitable for inserting back into <code>settings$run$inputs</code>).</p>
     <p>NOTE that sipnet met files contain dates <em>and</em> times, while sipnet event
 files contain only dates. Comparing a datetime to a date will coerce the
 date to midnight UTC.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="efficiency">Efficiency<a class="anchor" aria-label="anchor" href="#efficiency"></a></h2>
+
+
+
+<p>Splitting met files goes faster by far when all the inputs are known to have
+a uniform timestep, fixed number of characters per line, and all splits are
+at day boundaries. Setting <code>time_resolution = "days"</code> and
+<code>allow_varying_timesteps = FALSE</code> opts in to a fast code path that finds the
+wanted lines of the file by computing byte offsets and therefore avoids
+needing to read every row of the input file.
+For small subsets of large files this can be several times faster.</p>
+<p>If the input has variable line length but constant timesteps (as determined
+by checking the first 10 lines; see the <code>n_head</code> argument of
+<code><a href="subset_met_lines.html">subset_met_lines()</a></code>), the fast path is taken but is not <em>as</em> fast: it
+must scan from the beginning to count line separators, but still skips the
+tail of the file after <code>stop.time</code> is reached.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
