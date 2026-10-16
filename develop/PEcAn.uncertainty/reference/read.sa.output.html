@@ -89,9 +89,9 @@
 
 
 <dt id="arg-sa-run-ids">sa.run.ids<a class="anchor" aria-label="anchor" href="#arg-sa-run-ids"></a></dt>
-<dd><p>list of run ids to read.
-If NULL, will look in `pecandir` for a file named `samples.Rdata`
-and read from that</p></dd>
+<dd><p>run ids of this site's sensitivity runs, as built by
+<code><a href="sa_run_id_table.html">sa_run_id_table</a></code>. Needed when several sites share
+`runs_manifest.csv`; if NULL, every run in the manifest is used</p></dd>
 
 
 <dt id="arg-per-pft">per.pft<a class="anchor" aria-label="anchor" href="#arg-per-pft"></a></dt>

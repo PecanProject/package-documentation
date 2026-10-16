@@ -34,6 +34,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.0.9000" id="pecanuncertainty-1909000">PEcAn.uncertainty 1.9.0.9000<a class="anchor" aria-label="anchor" href="#pecanuncertainty-1909000"></a></h2>
 <ul><li>
+<code><a href="../reference/read.sa.output.html">read.sa.output()</a></code> now reads only the runs in <code>sa.run.ids</code>, so each site of a multisite sensitivity analysis gets its own results. Previously every site read the last site’s runs from the shared <code>runs_manifest.csv</code>.</li>
+<li>
 <code><a href="../reference/run.sensitivity.analysis.html">run.sensitivity.analysis()</a></code> skips traits with no spread in their SA samples, with a warning. Previously one such trait stopped the analysis for every PFT.</li>
 <li>
 <code>runs_manifest.csv</code> now has a column <code>ens_num</code> to distinguish ensemble members without reparsing run IDs.</li>
