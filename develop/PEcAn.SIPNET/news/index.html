@@ -34,6 +34,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecansipnet-11009000">PEcAn.SIPNET 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecansipnet-11009000"></a></h2>
 <ul><li>
+<code>write.config.SIPNET</code> converted <code>stem_respiration_rate</code> and <code>root_respiration_rate</code> to per day rates, but SIPNET reads <code>baseVegResp</code> and <code>baseFineRootResp</code> as per year and divides by 365 itself, so both were written 365x too low. They are now converted to per year.</li>
+<li>
 <code>model2netcdf.SIPNET</code> now also writes <code>soil_organic_carbon_content</code>, the soil carbon pool alone. <code>TotSoilCarb</code> is unchanged and still includes the litter pool, so it is not comparable to a measured soil organic carbon stock when the litter pool is on.</li>
 <li>
 <code>model2netcdf.SIPNET</code> now names the time bounds variable <code>time_bnds</code> (the CF convention, and the name <code>cdo</code> already produces when merging sub-annual outputs) instead of <code>time_bounds</code>. <code>read_restart.SIPNET</code> reads <code>time_bnds</code> and falls back to <code>time_bounds</code> for older outputs (#3303).</li>
