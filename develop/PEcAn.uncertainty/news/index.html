@@ -33,7 +33,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.9.0.9000" id="pecanuncertainty-1909000">PEcAn.uncertainty 1.9.0.9000<a class="anchor" aria-label="anchor" href="#pecanuncertainty-1909000"></a></h2>
-<ul><li>
+<ul><li>In <code><a href="../reference/run.sensitivity.analysis.html">run.sensitivity.analysis()</a></code>, load <code>samples</code> once before the variables loop, avoiding repeated disk reads (#3859).</li>
+<li>
 <code><a href="../reference/get.ensemble.samples.html">get.ensemble.samples()</a></code> now again returns a list of dataframes as it did before v1.9.0. The returned list also now has attribute <code>sampled.indices</code>, giving the position of each sampled value in its input set (#4127, @Devansh-56)</li>
 <li>
 <code><a href="../reference/read.sa.output.html">read.sa.output()</a></code> now reads only the runs in <code>sa.run.ids</code>, so each site of a multisite sensitivity analysis gets its own results. Previously every site read the last site’s runs from the shared <code>runs_manifest.csv</code>.</li>
