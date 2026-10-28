@@ -32,6 +32,19 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.10.0.9000" id="pecanassimsequential-11009000">PEcAnAssimSequential 1.10.0.9000<a class="anchor" aria-label="anchor" href="#pecanassimsequential-11009000"></a></h2>
+<div class="section level3">
+<h3 id="fixed-1-10-0-9000">Fixed<a class="anchor" aria-label="anchor" href="#fixed-1-10-0-9000"></a></h3>
+<ul><li>
+<code><a href="../reference/simple.local.html">simple.local()</a></code> and <code><a href="../reference/piecew.poly.local.html">piecew.poly.local()</a></code> now scale distances by their <code>scalef</code> argument; they previously referenced an undefined variable <code>rloc</code> and would fail when called (#2758).</li>
+<li>
+<code><a href="../reference/GEF.html">GEF()</a></code>, <code><a href="../reference/GEF.html">GEF.MultiSite()</a></code> and <code><a href="../reference/EnKF.MultiSite.html">EnKF.MultiSite()</a></code> now read <code>nt</code>, <code>obs.mean</code>, <code>blocked.dis</code> and <code>distances</code> from <code>...</code> explicitly instead of assigning them into the global environment (#2758).</li>
+<li>
+<code><a href="../reference/SDA_remote_launcher.html">SDA_remote_launcher()</a></code> no longer references an undefined <code>stop.on.error</code> when reading the qsub job id, and now reports a missing job id through its own error message (#2758).</li>
+<li>Objects read from <code>post.distns.Rdata</code>, <code>samples.Rdata</code> and <code>ensemble_weights.Rdata</code> are now loaded with <code><a href="https://rdrr.io/pkg/PEcAn.utils/man/load_local.html" class="external-link">PEcAn.utils::load_local()</a></code> instead of relying on <code><a href="https://rdrr.io/r/base/load.html" class="external-link">load()</a></code> to create them by name (#2758).</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.10.0" id="pecanassimsequential-1100">PEcAnAssimSequential 1.10.0<a class="anchor" aria-label="anchor" href="#pecanassimsequential-1100"></a></h2>
 <div class="section level3">
 <h3 id="added-1-10-0">Added<a class="anchor" aria-label="anchor" href="#added-1-10-0"></a></h3>
