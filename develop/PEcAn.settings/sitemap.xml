@@ -24,6 +24,7 @@
 <url><loc>/reference/createSitegroupMultiSettings.html</loc></url>
 <url><loc>/reference/expandMultiSettings.html</loc></url>
 <url><loc>/reference/fix.deprecated.settings.html</loc></url>
+<url><loc>/reference/future_papply.html</loc></url>
 <url><loc>/reference/getRunSettings.html</loc></url>
 <url><loc>/reference/get_args.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
@@ -31,7 +32,6 @@
 <url><loc>/reference/listToXml.html</loc></url>
 <url><loc>/reference/loadPath.sitePFT.html</loc></url>
 <url><loc>/reference/papply.html</loc></url>
-<url><loc>/reference/papply2.html</loc></url>
 <url><loc>/reference/prepare.settings.html</loc></url>
 <url><loc>/reference/printAll.html</loc></url>
 <url><loc>/reference/read.settings.html</loc></url>
