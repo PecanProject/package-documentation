@@ -47,7 +47,10 @@
 <span>  <span class="va">t</span>,</span>
 <span>  <span class="va">nt</span>,</span>
 <span>  <span class="va">MCMC.args</span>,</span>
-<span>  block.list.all.pre <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  block.list.all.pre <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  dist.att <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  pD <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  V0 <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -89,6 +92,19 @@
 
 <dt id="arg-block-list-all-pre">block.list.all.pre<a class="anchor" aria-label="anchor" href="#arg-block-list-all-pre"></a></dt>
 <dd><p>pre-existed block.list.all object for passing the aqq and bqq to the current SDA run, the default is NULL. Details can be found in the roxygen structure for `pre_enkf_params` of the `sda.enkf.multisite` function.</p></dd>
+
+
+<dt id="arg-dist-att">dist.att<a class="anchor" aria-label="anchor" href="#arg-dist-att"></a></dt>
+<dd><p>the disturbance matrix prescribing the prior biomass reductions due to disturbance
+(list(agb.bio.reduce (len = N site), lai.bio.reduce (len = N site))). Default is NULL.</p></dd>
+
+
+<dt id="arg-pd">pD<a class="anchor" aria-label="anchor" href="#arg-pd"></a></dt>
+<dd><p>prior of disturbed Vs. undisturbed probability. Default is NULL.</p></dd>
+
+
+<dt id="arg-v-">V0<a class="anchor" aria-label="anchor" href="#arg-v-"></a></dt>
+<dd><p>numeric matrix (dim B*B): covariance to be used for the disturbance model. Default is NULL.</p></dd>
 
 </dl></div>
     <div class="section level2">
