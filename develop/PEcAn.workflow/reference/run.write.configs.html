@@ -110,10 +110,8 @@ and ensemble analysis (e.g. <code>settings$sensitivity.analysis$ensemble.id</cod
 <dd><p>Produced by <code><a href="https://rdrr.io/pkg/PEcAn.uncertainty/man/get.parameter.samples.html" class="external-link">get.parameter.samples</a></code>.
 Contains 5 bundled objects: <code>trait.samples</code>,
 <code>sa.samples</code>, <code>ensemble.samples</code>, <code>runs.samples</code>, <code>env.samples</code>.
-This function loads <code>trait.samples</code> and <code>sa.samples</code> to build
-model configuration files. If <code>input_design</code> contains a <code>param</code>
-column, <code>ensemble.samples</code> is rebuilt by subsetting <code>trait.samples</code>
-according to the design indices.</p></dd>
+This function loads <code>ensemble.samples</code> and <code>sa.samples</code> to build
+model configuration files.</p></dd>
 
 
 </dl><p><strong>File-based side effects (saved to <code>settings$outdir</code>):</strong></p><dl><dt><code>sensitivity.samples.&lt;ensemble_id&gt;.Rdata</code></dt>
