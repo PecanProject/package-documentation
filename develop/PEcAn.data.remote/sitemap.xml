@@ -9,6 +9,7 @@
 <url><loc>/reference/GEDI_L4A_2_mean_var.html</loc></url>
 <url><loc>/reference/GEDI_L4A_Finder.html</loc></url>
 <url><loc>/reference/GEDI_L4A_Finder_batch.html</loc></url>
+<url><loc>/reference/Grab.html</loc></url>
 <url><loc>/reference/Landtrendr_AGB_prep.html</loc></url>
 <url><loc>/reference/MODIS_LAI_prep.html</loc></url>
 <url><loc>/reference/MODIS_LAI_ts_filter.html</loc></url>
@@ -22,6 +23,7 @@
 <url><loc>/reference/SMAP_SMP_prep.html</loc></url>
 <url><loc>/reference/call_MODIS.html</loc></url>
 <url><loc>/reference/construct_remotedata_filename.html</loc></url>
+<url><loc>/reference/doi_to_product_name.html</loc></url>
 <url><loc>/reference/download.CHIRPS.html</loc></url>
 <url><loc>/reference/download.CIMIS.html</loc></url>
 <url><loc>/reference/download.LandTrendr.AGB.html</loc></url>
