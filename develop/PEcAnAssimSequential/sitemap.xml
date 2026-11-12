@@ -55,6 +55,7 @@
 <url><loc>/reference/downscale_qsub_main.html</loc></url>
 <url><loc>/reference/dwtmnorm.html</loc></url>
 <url><loc>/reference/ensemble_downscale.html</loc></url>
+<url><loc>/reference/faiss_kmeans.html</loc></url>
 <url><loc>/reference/get_ensemble_weights.html</loc></url>
 <url><loc>/reference/hop_test.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
@@ -88,6 +89,8 @@
 <url><loc>/reference/sda_matchparam.html</loc></url>
 <url><loc>/reference/sda_weights_site.html</loc></url>
 <url><loc>/reference/simple.local.html</loc></url>
+<url><loc>/reference/site_selction.html</loc></url>
+<url><loc>/reference/smooth.div.html</loc></url>
 <url><loc>/reference/stack_covariates_2_df.html</loc></url>
 <url><loc>/reference/stack_covariates_2_geotiff.html</loc></url>
 <url><loc>/reference/subset_ensemble.html</loc></url>
