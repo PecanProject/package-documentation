@@ -36,6 +36,8 @@
 <ul><li>
 <code>write_segmented_configs.SIPNET</code> now merges consecutive segments with the same PFT to avoid unnecessary SIPNET restarts (#4129).</li>
 <li>
+<code>write.config.SIPNET</code>: Fixed initial LAI being too low when <code>leaf_carbon_content</code> is read from an initial condition file (#4205).</li>
+<li>
 <code>write.config.SIPNET</code> converted <code>stem_respiration_rate</code> and <code>root_respiration_rate</code> to per day rates, but SIPNET reads <code>baseVegResp</code> and <code>baseFineRootResp</code> as per year and divides by 365 itself, so both were written 365x too low. They are now converted to per year.</li>
 <li>
 <code>model2netcdf.SIPNET</code> now also writes <code>soil_organic_carbon_content</code>, the soil carbon pool alone. <code>TotSoilCarb</code> is unchanged and still includes the litter pool, so it is not comparable to a measured soil organic carbon stock when the litter pool is on.</li>
