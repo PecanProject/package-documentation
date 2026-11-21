@@ -76,12 +76,12 @@ LeBauer</h4>
 <p>This is a demonstration of the PEcAn utilities for downloading met
 data, converting it to the PEcAn-CF format (which is based on the
 Climate Forecasting conventions and similar to MsTMIP). These variables
-are described in the <a href="https://pecanproject.github.io/pecan-documentation/develop/input-standards.html#meteorology-standards" class="external-link">PEcAn
+are described in the <a href="https://pecanproject.org/pecan-documentation/develop/input-standards.html#meteorology-standards" class="external-link">PEcAn
 met data documentation</a>.</p>
 <p>We’ll download 12 years of met data from the <a href="https://ameriflux.lbl.gov/sites/siteinfo/US-Bo1" class="external-link">Bondville
 Ameriflux site</a>, which has a <code>SITE_ID</code> of
 <code>US-Bo1</code>.</p>
-<p>The PEcAn.data.atmosphere source code is in <a href="https://github.com/PecanProject/pecan/tree/main/modules/data.atmosphere" class="external-link"><code>modules/data.atmosphere</code></a>
+<p>The PEcAn.data.atmosphere source code is in <a href="https://github.com/PecanProject/pecan/tree/develop/modules/data.atmosphere" class="external-link"><code>modules/data.atmosphere</code></a>
 and the documentation can be found with either
 <code>package?PEcAn.data.atmosphere</code> or in the <a href="https://pecanproject.github.io/package-documentation/develop/PEcAn.data.atmosphere/" class="external-link">data.atmosphere
 package documentation</a>.</p>
@@ -106,7 +106,7 @@ package documentation</a>.</p>
 <h3 id="concatenate-years">Concatenate years<a class="anchor" aria-label="anchor" href="#concatenate-years"></a>
 </h3>
 <p>NB: this is not required within PEcAn; used here for convenience. See
-documentation for <a href="http://research.jisao.washington.edu/data_sets/nco/#example8" class="external-link">NCO
+documentation for <a href="https://nco.sourceforge.net/nco.html#ncrcat-netCDF-Record-Concatenator" class="external-link">NCO
 <code>ncrcat</code> function</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"ncrcat -O -h /tmp/out/US-Bo1.199[6789].nc /tmp/out/US-Bo1.200[12348678].nc /tmp/out/US-Bo11996-2008.nc"</span><span class="op">)</span></span></code></pre></div>
