@@ -23,8 +23,9 @@
 <url><loc>/reference/closest_xy.html</loc></url>
 <url><loc>/reference/col2ncvar.html</loc></url>
 <url><loc>/reference/cos_solar_zenith_angle.html</loc></url>
+<url><loc>/reference/debias.met.html</loc></url>
 <url><loc>/reference/debias.met.regression.html</loc></url>
-<url><loc>/reference/debias_met.html</loc></url>
+<url><loc>/reference/dot-download.raw.met.module.html</loc></url>
 <url><loc>/reference/download.Ameriflux.html</loc></url>
 <url><loc>/reference/download.AmerifluxLBL.html</loc></url>
 <url><loc>/reference/download.CRUNCEP.html</loc></url>
@@ -48,7 +49,6 @@
 <url><loc>/reference/download.PalEON_ENS.html</loc></url>
 <url><loc>/reference/download.US_WCr.html</loc></url>
 <url><loc>/reference/download.US_Wlef.html</loc></url>
-<url><loc>/reference/download.raw.met.module.html</loc></url>
 <url><loc>/reference/download_NOAA_GEFS_EFI.html</loc></url>
 <url><loc>/reference/download_grid.html</loc></url>
 <url><loc>/reference/downscale_ShortWave_to_half_hrly.html</loc></url>
@@ -76,7 +76,6 @@
 <url><loc>/reference/get_cf_variables_table.html</loc></url>
 <url><loc>/reference/get_clowderauth.html</loc></url>
 <url><loc>/reference/get_narr_url.html</loc></url>
-<url><loc>/reference/half_hour_downscale.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/latlon2lcc.html</loc></url>
 <url><loc>/reference/latlon2narr.html</loc></url>
@@ -130,6 +129,7 @@
 <url><loc>/reference/sw2ppfd.html</loc></url>
 <url><loc>/reference/temporal.downscale.functions.html</loc></url>
 <url><loc>/reference/temporal_downscale.html</loc></url>
+<url><loc>/reference/temporal_downscale_half_hour.html</loc></url>
 <url><loc>/reference/upscale_met.html</loc></url>
 <url><loc>/reference/wide2long.html</loc></url>
 <url><loc>/reference/write_noaa_gefs_netcdf.html</loc></url>

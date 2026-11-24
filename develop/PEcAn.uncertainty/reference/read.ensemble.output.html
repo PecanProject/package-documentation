@@ -81,17 +81,21 @@ and <code>end.year</code></p>
 
 
 <dt id="arg-ens-run-ids">ens.run.ids<a class="anchor" aria-label="anchor" href="#arg-ens-run-ids"></a></dt>
-<dd><p>dataframe. Must contain a column named "id" giving the run IDs to be read.
-If NULL, will attempt to read IDs from a file named "samples.Rdata" in <code>pecandir</code></p></dd>
+<dd><p>Data frame with a <code>run_id</code> or legacy <code>id</code>
+column. If NULL, read IDs from <code>runs_manifest.csv</code> in
+<code>pecandir</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a list of ensemble model output</p>
+    <p>a list of ensemble model output, one value per member.
+  A member with no requested output returns <code>NA_real_</code>. If some
+  variables are available, the expression uses <code>NA_real_</code> for each
+  missing variable.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
-    <p>Ryan Kelly, David LeBauer, Rob Kooper</p>
+    <p>Ryan Kelly, David LeBauer, Rob Kooper, Gaurav Chaudhary</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

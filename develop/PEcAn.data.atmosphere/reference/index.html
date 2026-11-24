@@ -77,7 +77,7 @@
           <code><a href="align.met.html">align.met()</a></code>
 
         </dt>
-        <dd>align.met</dd>
+        <dd>Align meteorology datasets for debiasing</dd>
       </dl><dl><dt>
 
           <code><a href="build_cf_variables_table_url.html">build_cf_variables_table_url()</a></code>
@@ -134,22 +134,28 @@
         <dd>Cosine of Solar Zenith Angle</dd>
       </dl><dl><dt>
 
+          <code><a href="debias.met.html">debias.met()</a></code>
+
+        </dt>
+        <dd>Takes input_met and debiases it based on statistics from a train_met dataset</dd>
+      </dl><dl><dt>
+
           <code><a href="debias.met.regression.html">debias.met.regression()</a></code>
 
         </dt>
-        <dd>debias.met.regression</dd>
+        <dd>Debias Meteorology using Multiple Linear Regression</dd>
       </dl><dl><dt>
 
-          <code><a href="debias_met.html">debias.met()</a></code>
+          <code><a href="dot-download.raw.met.module.html">.download.raw.met.module()</a></code>
 
         </dt>
-        <dd>debias_met</dd>
+        <dd>download.raw.met.module</dd>
       </dl><dl><dt>
 
           <code><a href="download.Ameriflux.html">download.Ameriflux()</a></code>
 
         </dt>
-        <dd>download.Ameriflux</dd>
+        <dd>Download Ameriflux L2 netCDF files</dd>
       </dl><dl><dt>
 
           <code><a href="download.AmerifluxLBL.html">download.AmerifluxLBL()</a></code>
@@ -179,13 +185,13 @@
           <code><a href="download.Fluxnet2015.html">download.Fluxnet2015()</a></code>
 
         </dt>
-        <dd>download.Fluxnet2015</dd>
+        <dd>Download Fluxnet 2015 CSV files</dd>
       </dl><dl><dt>
 
           <code><a href="download.FluxnetLaThuile.html">download.FluxnetLaThuile()</a></code>
 
         </dt>
-        <dd>download.FluxnetLaThuile</dd>
+        <dd>Download Flxunet LaThuile CSV files</dd>
       </dl><dl><dt>
 
           <code><a href="download.GFDL.html">download.GFDL()</a></code>
@@ -215,7 +221,7 @@
           <code><a href="download.MACA.html">download.MACA()</a></code>
 
         </dt>
-        <dd>download.MACA</dd>
+        <dd>Download MACA CMIP5 outputs for a single grid point using OPeNDAP and convert to CF</dd>
       </dl><dl><dt>
 
           <code><a href="download.MERRA.html">download.MERRA()</a></code>
@@ -227,7 +233,7 @@
           <code><a href="download.MsTMIP_NARR.html">download.MsTMIP_NARR()</a></code>
 
         </dt>
-        <dd>download.MsTMIP_NARR</dd>
+        <dd>Download and conver to CF NARR single grid point from MSTIMIP server using OPENDAP interface</dd>
       </dl><dl><dt>
 
           <code><a href="download.NARR.html">download.NARR()</a></code>
@@ -263,7 +269,7 @@
           <code><a href="download.PalEON.html">download.PalEON()</a></code>
 
         </dt>
-        <dd>download.PalEON</dd>
+        <dd>Download PalEON files</dd>
       </dl><dl><dt>
 
           <code><a href="download.PalEON_ENS.html">download.PalEON_ENS()</a></code>
@@ -282,12 +288,6 @@
 
         </dt>
         <dd>download.US_Wlef</dd>
-      </dl><dl><dt>
-
-          <code><a href="download.raw.met.module.html">.download.raw.met.module()</a></code>
-
-        </dt>
-        <dd>download.raw.met.module</dd>
       </dl><dl><dt>
 
           <code><a href="download_NOAA_GEFS_EFI.html">download_NOAA_GEFS_EFI()</a></code>
@@ -371,13 +371,13 @@
           <code><a href="extract.local.CMIP5.html">extract.local.CMIP5()</a></code>
 
         </dt>
-        <dd>Extract NLDAS from local download Extract NLDAS meteorology for a point from a local download of the full grid</dd>
+        <dd>Extract CMIP5 from local download</dd>
       </dl><dl><dt>
 
           <code><a href="extract.local.NLDAS.html">extract.local.NLDAS()</a></code>
 
         </dt>
-        <dd>Extract NLDAS from local download Extract NLDAS meteorology for a point from a local download of the full grid</dd>
+        <dd>Extract NLDAS from local download</dd>
       </dl><dl><dt>
 
           <code><a href="extract.nc.ERA5.html">extract.nc.ERA5()</a></code>
@@ -389,7 +389,7 @@
           <code><a href="extract.nc.html">extract.nc()</a></code>
 
         </dt>
-        <dd>extract.nc</dd>
+        <dd>Given latitude and longitude coordinates, extract site data from NARR file</dd>
       </dl><dl><dt>
 
           <code><a href="gen.subdaily.models.html">gen.subdaily.models()</a></code>
@@ -407,7 +407,7 @@
           <code><a href="get.lv.html">get.lv()</a></code>
 
         </dt>
-        <dd>Latent heat of vaporization</dd>
+        <dd>Calculate latent heat of vaporization for water</dd>
       </dl><dl><dt>
 
           <code><a href="get.ncvector.html">get.ncvector()</a></code>
@@ -419,13 +419,13 @@
           <code><a href="get.rh.html">get.rh()</a></code>
 
         </dt>
-        <dd>get RH</dd>
+        <dd>Calculate RH from temperature and dewpoint</dd>
       </dl><dl><dt>
 
           <code><a href="get.vpd.html">get.vpd()</a></code>
 
         </dt>
-        <dd>VPD</dd>
+        <dd>Calculate VPD</dd>
       </dl><dl><dt>
 
           <code><a href="get_NARR_thredds.html">get_NARR_thredds()</a></code>
@@ -452,12 +452,6 @@
         <dd>Retrieve NARR data from a given URL</dd>
       </dl><dl><dt>
 
-          <code><a href="half_hour_downscale.html">temporal_downscale_half_hour()</a></code>
-
-        </dt>
-        <dd>half_hour_downscale</dd>
-      </dl><dl><dt>
-
           <code><a href="latlon2lcc.html">latlon2lcc()</a></code>
 
         </dt>
@@ -479,7 +473,7 @@
           <code><a href="lm_ensemble_sims.html">lm_ensemble_sims()</a></code>
 
         </dt>
-        <dd>lm_ensemble_sims</dd>
+        <dd>Linear Regression Ensemble Simulation</dd>
       </dl><dl><dt>
 
           <code><a href="load.cfmet.html">load.cfmet()</a></code>
@@ -509,19 +503,19 @@
           <code><a href="met2CF.ALMA.html">met2CF.ALMA()</a></code>
 
         </dt>
-        <dd>met2CF.ALMA</dd>
+        <dd>Get meteorology variables from ALMA netCDF files and convert to netCDF CF format</dd>
       </dl><dl><dt>
 
           <code><a href="met2CF.Ameriflux.html">met2CF.Ameriflux()</a></code>
 
         </dt>
-        <dd>met2CF.Ameriflux</dd>
+        <dd>Get meteorology variables from Ameriflux L2 netCDF files and convert to netCDF CF format</dd>
       </dl><dl><dt>
 
           <code><a href="met2CF.AmerifluxLBL.html">met2CF.AmerifluxLBL()</a></code>
 
         </dt>
-        <dd>met2CF.AmerifluxLBL</dd>
+        <dd>Get meteorology variables from Ameriflux LBL and convert to netCDF CF format</dd>
       </dl><dl><dt>
 
           <code><a href="met2CF.ERA5.html">met2CF.ERA5()</a></code>
@@ -545,7 +539,7 @@
           <code><a href="met2CF.ICOS.html">met2CF.ICOS()</a></code>
 
         </dt>
-        <dd>Convert variables ICOS variables to CF format.</dd>
+        <dd>Convert variables ICOS variables to CF format</dd>
       </dl><dl><dt>
 
           <code><a href="met2CF.NARR.html">met2CF.NARR()</a></code>
@@ -557,13 +551,13 @@
           <code><a href="met2CF.PalEON.html">met2CF.PalEON()</a></code>
 
         </dt>
-        <dd>met2CF.PalEON</dd>
+        <dd>Get meteorology variables from PalEON netCDF files and convert to netCDF CF format</dd>
       </dl><dl><dt>
 
           <code><a href="met2CF.PalEONregional.html">met2CF.PalEONregional()</a></code>
 
         </dt>
-        <dd>met2CF.PalEONregional</dd>
+        <dd>Get meteorology variables from PalEON netCDF files and convert to netCDF CF format</dd>
       </dl><dl><dt>
 
           <code><a href="met2CF.csv.html">met2CF.csv()</a></code>
@@ -587,13 +581,13 @@
           <code><a href="metgapfill.html">metgapfill()</a></code>
 
         </dt>
-        <dd>Take an Ameriflux NetCDF file Fill missing met values using MDS approach using MPI-BGC REddyProc library Currently Future version: Choose which variables to gap fill Future version will first downscale and fill with NARR, then REddyProc</dd>
+        <dd>Take an Ameriflux NetCDF file, Fill missing met values using MDS approach using MPI-BGC REddyProc library</dd>
       </dl><dl><dt>
 
           <code><a href="model.train.html">model.train()</a></code>
 
         </dt>
-        <dd>model.train</dd>
+        <dd>TDM Model Train</dd>
       </dl><dl><dt>
 
           <code><a href="narr_flx_vars.html">narr_flx_vars</a></code> <code><a href="narr_flx_vars.html">narr_sfc_vars</a></code> <code><a href="narr_flx_vars.html">narr_all_vars</a></code>
@@ -605,7 +599,7 @@
           <code><a href="nc.merge.html">nc.merge()</a></code>
 
         </dt>
-        <dd>nc.merge</dd>
+        <dd>Parses multiple netCDF files into one central document for temporal downscaling procedure</dd>
       </dl><dl><dt>
 
           <code><a href="noaa_grid_download.html">noaa_grid_download()</a></code>
@@ -623,7 +617,7 @@
           <code><a href="par2ppfd.html">par2ppfd()</a></code>
 
         </dt>
-        <dd>par2ppfd</dd>
+        <dd>convert PAR to PPFD</dd>
       </dl><dl><dt>
 
           <code><a href="pecan_standard_met_table.html">pecan_standard_met_table</a></code>
@@ -635,7 +629,7 @@
           <code><a href="permute.nc.html">permute.nc()</a></code>
 
         </dt>
-        <dd>permute.nc</dd>
+        <dd>Permute netCDF files</dd>
       </dl><dl><dt>
 
           <code><a href="post_process.html">post_process()</a></code>
@@ -647,7 +641,7 @@
           <code><a href="predict_subdaily_met.html">predict_subdaily_met()</a></code>
 
         </dt>
-        <dd>predict_subdaily_met</dd>
+        <dd>Predict Subdaily Meteorology based off of statistics created in gen.subdaily.models()</dd>
       </dl><dl><dt>
 
           <code><a href="prepare_narr_year.html">prepare_narr_year()</a></code>
@@ -665,7 +659,7 @@
           <code><a href="qair2rh.html">qair2rh()</a></code>
 
         </dt>
-        <dd>qair2rh</dd>
+        <dd>Convert specific humidity to relative humidity</dd>
       </dl><dl><dt>
 
           <code><a href="read.register.html">read.register()</a></code>
@@ -695,13 +689,13 @@
           <code><a href="save.betas.html">save.betas()</a></code>
 
         </dt>
-        <dd>save.betas</dd>
+        <dd>TDM Save Betas</dd>
       </dl><dl><dt>
 
           <code><a href="save.model.html">save.model()</a></code>
 
         </dt>
-        <dd>save.model</dd>
+        <dd>TDM Save Models</dd>
       </dl><dl><dt>
 
           <code><a href="site.lst.html">site.lst()</a></code>
@@ -719,7 +713,7 @@
           <code><a href="solarMJ2ppfd.html">solarMJ2ppfd()</a></code>
 
         </dt>
-        <dd>MJ to PPFD</dd>
+        <dd>Solar Radiation to PPFD</dd>
       </dl><dl><dt>
 
           <code><a href="spin.met.html">spin.met()</a></code>
@@ -737,31 +731,31 @@
           <code><a href="step_means.html">step_means()</a></code>
 
         </dt>
-        <dd>take mean at fixed intervals along a vector</dd>
+        <dd>Take mean at fixed intervals along a vector</dd>
       </dl><dl><dt>
 
           <code><a href="subdaily_pred.html">subdaily_pred()</a></code>
 
         </dt>
-        <dd>subdaily_pred</dd>
+        <dd>Pulls information from linear regression models to predict subdaily meteorology</dd>
       </dl><dl><dt>
 
           <code><a href="sw2par.html">sw2par()</a></code>
 
         </dt>
-        <dd>SW to PAR</dd>
+        <dd>Shortwave radiation to PAR</dd>
       </dl><dl><dt>
 
           <code><a href="sw2ppfd.html">sw2ppfd()</a></code>
 
         </dt>
-        <dd>SW to PPFD</dd>
+        <dd>CF Shortwave to PPFD</dd>
       </dl><dl><dt>
 
           <code><a href="temporal.downscale.functions.html">temporal.downscale.functions()</a></code>
 
         </dt>
-        <dd>temporal_downscale_functions</dd>
+        <dd>Temporal Downscale Functions</dd>
       </dl><dl><dt>
 
           <code><a href="temporal_downscale.html">temporal_downscale()</a></code>
@@ -770,16 +764,22 @@
         <dd>Downscale NOAA GEFS from 6hr to 1hr</dd>
       </dl><dl><dt>
 
+          <code><a href="temporal_downscale_half_hour.html">temporal_downscale_half_hour()</a></code>
+
+        </dt>
+        <dd>half_hour_downscale</dd>
+      </dl><dl><dt>
+
           <code><a href="upscale_met.html">upscale_met()</a></code>
 
         </dt>
-        <dd>upscale_met</dd>
+        <dd>Upscales the temporal resolution of a dataset</dd>
       </dl><dl><dt>
 
           <code><a href="wide2long.html">wide2long()</a></code>
 
         </dt>
-        <dd>Wide to Long</dd>
+        <dd>Convert raster to lat, lon, var</dd>
       </dl><dl><dt>
 
           <code><a href="write_noaa_gefs_netcdf.html">write_noaa_gefs_netcdf()</a></code>
